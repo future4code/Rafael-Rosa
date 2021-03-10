@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/30fe2c1c74.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="bt_menu">
+        <label for="bt_menu">MENU &#9776;</label>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="../../index.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="#" id="selected">Calculadora de IMC</a></li>
+                <li><a href="../tabuada/index.html">Tabuada</a></li>
+                <li><a href="../App_Sorteio/index.html">Sorteador de números</a></li>
+                <li><a href="../App_calculo_de_tarifa/index.html">Calculadora de tarifa</a></li>
+                <li><a href="../Alura-Botao_de_likes/index.html">Botão de Likes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="titulo">
+        <h1>Calculadora de IMC</h1>
+        <h2>(Índice de Massa Corporal)</h4>
+    </div>
+
+    <section class="caixa">
+        <div class="entrada">
+            <p>
+                Digite seu peso: <input type="number" placeholder="70" min="1" maxlength="4" name="peso" id="peso"> Kg
+            </p>
+            
+            <p>
+                Digite sua altura: <input type="number" placeholder="170" min="1" name="altura" id="altura"> cm
+            </p>
+        
+        <div class="container">
+            <button type="button" class="botao" onclick="imc()">
+                Calcular
+            </button>
+
+            <div id="resultado">
+            </div>
+        </div>    
+        </div>
+        
+        <div class="table">
+            <table class="table-calc" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td colspan="2">Veja a interpretação do IMC</td>
+                    </tr>
+                </thead>
+                <tbody>						
+                    <tr class="table-calc-blue">
+                        <td>IMC</td>
+                        <td>Classificação</td>
+                    </tr>         
+                    <tr id="result_0">
+                        <td>Abaixo de 17</td>
+                        <td>Muito abaixo do peso</td>
+                    </tr>             
+                    <tr id="result_1">
+                        <td>Entre 17 e 18,4</td>
+                        <td>Abaixo do peso</td>
+                    </tr>
+                    <tr id="result_2">
+                        <td>Entre 18,5 e 24,9</td>
+                        <td>Peso normal</td>
+                    </tr>
+                    <tr id="result_3">
+                        <td>Entre 25 e 29,9</td>
+                        <td>Acima do peso</td>
+                    </tr>
+                    <tr id="result_4">
+                        <td>Entre 30 e 34,9</td>
+                        <td>Obesidade grau I</td>
+                    </tr>
+                    <tr id="result_5">
+                        <td>Entre 35 e 39,9</td>
+                        <td>Obesidade grau II</td>
+                    </tr>
+                    <tr id="result_6">
+                        <td>Acima de 40</td>
+                        <td>Obesidade grau III</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Html, css e js base por Curso em Vídeo</p>
+        <p>Modificações e personalização: Rafael S. da Rosa</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
