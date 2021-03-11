@@ -8,9 +8,15 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
-
 body{
     margin: auto;
+}
+
+h1{
+  font-size: 3em;
+}
+h2{
+  font-size: 2em;
 }
 
 .one-second{
@@ -66,17 +72,16 @@ header{
 /*FIM CABEÇALHO*/
 
 .site-title {
-  border-right: 2px solid #a1138a;
+  border-right: 3px solid #a1138a;
   font-weight: 700;
-  font-size: 2.4em; 
-  /*2,4x o tamanho da font definida pelo body*/
   line-height: 1.2em;
   overflow: hidden;
   white-space: nowrap;
 }
 .site-subtitle {
   font-style: italic;
-  font-weight: lighter;
+  font-weight: 200;
+  color: #404040;
   animation: linear 0.4s 3s subtitle-animation forwards;
   opacity: 0;
   transform: scale(0.2);
@@ -113,6 +118,10 @@ header{
 .capa div,
 .estudos div{
     display: inline-block;
+}
+
+.sobre h2{
+  text-align: center;
 }
 
 .estudos img{
