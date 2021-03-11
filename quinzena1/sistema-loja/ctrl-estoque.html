@@ -4,68 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
     <title>Controle de Estoque - Seu Quadro</title>
 </head>
 <body>
-    <div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+                <li><a href="add-produto.html">Adicionar Produto</a></li>
+                <li><a href="funcionarios.html">Funcionários</a></li>
+    
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="titulo">
         <p>Seu Quadro</p>
     </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+
+    <div class="main">          
+
+        <h2>Controle de Estoque</h2>
+
+        <table>
+            <tr>
+                <th>Foto</th>
+                <th>Descrição</th>
+                <th>Preço (R$)</th>
+                <th>Quantidade disponível</th>
+            </tr>
+
+            <tr>
+                <td><img src="img/mario.jpeg" alt="Mario" height="100px" width="auto"/></td>
+                <td> Mário </td>
+                <td> 25,00 </td>
+                <td> 3 </td>
+            </tr>
+
+            <tr>
+                <td><img src="img/minions.jpg" alt="Minions" height="100px" width="auto"/></td>
+                <td> Minions </td>
+                <td> 18,00 </td>
+                <td> 2 </td>
+            </tr>
+
+            <tr>
+                <td><img src="img/magali.png" alt="Magali" height="100px" width="auto"/></td>
+                <td> Magali </td>
+                <td> 21,00 </td>
+                <td> 5 </td>
+            </tr>
+
+            <tr>
+                <td><img src="img/patolino.jpg" alt="Patolino" height="100px" width="auto"/></td>
+                <td> Patolino </td>
+                <td> 30 </td>
+                <td> 2 </td>
+            </tr>
+            
+            <!-- Crie mais uma linha desta tabela abaixo \/ -->
+
+            <tr>
+                <td><img src="img/menino-maluquinho.jpg" alt="Menino Maluquinho" height="100px" width="auto"></td>
+                <td> Menino Maluquinho </td>
+                <td> 50,00 </td>
+                <td> 1 </td>
+            </tr>
+        </table>
     </div>
 
-    <h2>Controle de Estoque</h2>
-
-    <table>
-        <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço (R$)</th>
-            <th>Quantidade disponível</th>
-        </tr>
-
-        <tr>
-            <td><img src="img/mario.jpeg" alt="Mario" height="100px" width="auto"/></td>
-            <td> Mário </td>
-            <td> 25,00 </td>
-            <td> 3 </td>
-        </tr>
-
-        <tr>
-            <td><img src="img/minions.jpg" alt="Minions" height="100px" width="auto"/></td>
-            <td> Minions </td>
-            <td> 18,00 </td>
-            <td> 2 </td>
-        </tr>
-
-        <tr>
-            <td><img src="img/magali.png" alt="Magali" height="100px" width="auto"/></td>
-            <td> Magali </td>
-            <td> 21,00 </td>
-            <td> 5 </td>
-        </tr>
-
-        <tr>
-            <td><img src="img/patolino.jpg" alt="Patolino" height="100px" width="auto"/></td>
-            <td> Patolino </td>
-            <td> 30 </td>
-            <td> 2 </td>
-        </tr>
+        <footer>
+            <div>
+                <p>Siga-nos nas redes sociais!</p>
         
-        <!-- Crie mais uma linha desta tabela abaixo \/ -->
-
-        <tr>
-            <td><img src="img/menino-maluquinho.jpg" alt="Menino Maluquinho" height="100px" width="auto"></td>
-            <td> Menino Maluquinho </td>
-            <td> 50,00 </td>
-            <td> 1 </td>
-        </tr>
-
-    </table>
-
+                <div class="social">
+                    <a href="#">
+                        <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+                    </a>
+                    <a href="#">
+                        <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+                    </a>
+                    <a href="#">
+                        <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+                    </a>
+                </div>
+            </div>
+        </footer>
 </body>
 </html>
