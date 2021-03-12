@@ -4,30 +4,28 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-header, .main {
-    max-width: 600px;
+body{
+    background-color: #d7dffaf6 ;
+    text-align: center;
+    height: 100%;
+}
+
+header {
+    max-width: 1100px;
     margin: auto;
 }
 
-body{
-    background-color: rgba(215, 223, 250, 0.966) ;
-    text-align: center;
-    height: 100%;
+.main {
+    max-width: 600px;
+    margin: auto;
 }
 
 h2{
     margin-bottom: 15px;
 }
+
 li{
     list-style-type: none;
-}
-
-.home{
-    background: linear-gradient(rgb(215 223 250 / 25%), rgb(215 223 250 / 0%)), url("../img/title-background.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 80vh;
-    padding-top: 25vh;
 }
 
 a{
@@ -44,6 +42,14 @@ nav ul{
 }
 nav li{
     display: inline;
+}
+
+.home{
+    background: linear-gradient(rgb(215 223 250 / 25%), rgb(215 223 250 / 0%)), url("../img/title-background.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 80vh;
+    padding-top: 25vh;
 }
 
 .titulo{
@@ -64,25 +70,46 @@ nav li{
 
 table{
     margin: auto;
-    border-spacing: 0;
+    border-spacing: 1px;
 }
 th{
     padding: 10px 5px;
+    background-color: #008b8b78;
+}
+tr{
+    border: 1px solid #000;
+}
+.pesquisa-produto{
+    background-color: transparent;
+    text-align: left;
 }
 td{
     padding: 10px;
 }
-tr:nth-of-type(2n){
-    background-color: darkcyan;
+tr:nth-of-type(2n+2){
+    background-color: #c4c4c485;
 }
 
 form{
     text-align: left;
 }
+.select-item, .select-payment{ 
+    text-align: center;
+    padding: 10px;
+}
+.select-item select{
+    padding: 5px 10px;
+}
+.select-item label{
+    display: block;
+}
+
+
+
 input {
     padding: 3px 0 3px 7px;
     margin: 4px 0;
-    background-color: #008b8b78;
+    background-color: #c4c4c485;
     border: none;
     color: white;
 }
