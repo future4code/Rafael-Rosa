@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Funcionários - Seu Quadro</title>
+    <title>Venda - Seu Quadro</title>
 </head>
 <body>
     <header>
@@ -24,15 +24,36 @@
     <div class="titulo">
         <p>Seu Quadro</p>
     </div>
-        
+    
+
     <div class="main">
-        <h2>Funcionários</h2>
-        <!-- Crie uma lista de funcionários usando as tags que você aprendeu hoje abaixo \/ -->
-        <ul>
-            <li>Camila</li>
-            <li>Rafael</li>
-            <li>Alice</li>
-        </ul>
+        <h2>Lista de Compras</h2>
+
+        <form action="">
+            <div class="select-item">
+                <label for="produto">Selecionar produto(s)</label>
+                <select name="produto" id="produto" size="5" multiple>
+                    <option value="mario">Mário</option>
+                    <option value="minions">Minions</option>
+                    <option value="magali">Magali</option>
+                    <option value="patolino">Patolino</option>
+                    <option value="menino-maluquinho">Menino Maluquinho</option>
+                </select>
+            </div>
+
+            <div class="select-payment">
+                <label for="pagamento">Forma de pagamento</label>
+                <select name="pagamento" id="pagamento">
+                    <option value="dinheiro">Dinheiro</option>
+                    <option value="pix">PIX</option>
+                    <option value="credito">Crédito</option>
+                    <option value="debito">Débito</option>
+                </select>
+                
+                <button type="submit">Adicionar</button>
+            </div>
+    
+        </form>
     </div>
 
     <footer class="bottom-fixed">
@@ -52,6 +73,6 @@
             </div>
         </div>
     </footer>
-        
+
 </body>
 </html>
