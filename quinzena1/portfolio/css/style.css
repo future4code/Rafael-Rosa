@@ -12,6 +12,10 @@ body{
   margin: auto;
 }
 
+section{
+  padding-top: 50px;
+}
+
 h1{
   font-size: 3em;
 }
@@ -72,7 +76,7 @@ header .container{
 /*FIM CABEÇALHO*/
 
 .site-title {
-  border-right: 3px solid #a1138a;
+  border-right: 3px solid #3b3b3b;
   font-weight: 700;
   line-height: 1.2em;
   overflow: hidden;
@@ -104,17 +108,19 @@ header .container{
 .capa .container{
   display: flex;
   align-items: center;
-  height: calc(100vh - 115px);
+  height: calc(100vh - 165px);
 }
-.capa img{
-  -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#7BC212), to(#fff), color-stop(0.5, #fff), color-stop(1, #66cc00)) 21 30 30 21 repeat repeat;
-}
+
 .capa .titulo{
   padding-left: 50px;
 }
 .capa .foto{
   text-align: center;
 }
+.capa .foto img{
+  -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#7BC212), to(#fff), color-stop(0.5, #fff), color-stop(1, #66cc00)) 21 30 30 21 repeat repeat;
+}
+
 .capa div,
 .estudos div{
   display: inline-block;  
@@ -122,16 +128,21 @@ header .container{
   vertical-align: top;
 }
 
+
 .sobre, .estudos{
-  background-color: cornflowerblue;
+  background-color: #477800;
+  color: #FFF;
+}
+
+.cursos{
+  width: 35%;
 }
 
 .estudos{
-  padding-bottom: 300px;
-
+  padding-bottom: 400px;
   text-align: center;
 }
-.sobre h2{
+.sobre h2, .projetos H2, footer h3{
   text-align: center;
 }
 
@@ -140,18 +151,19 @@ header .container{
 }
 
 .projetos {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 1em;
   padding-top: calc(1em + 0.7em + 20px + 1.2em);
 }
 
 .projetos .container{
-  margin-top: -300px;
+  margin-top: -400px;
 }
 .projetos .grid {
   align-content: center;
   justify-content: center;  
-  background-color: rgba(255, 255, 255, 0.90);
+  background-color: rgba(255, 255, 255);
+  box-shadow: 1px 2px 9px #00000057;
   border-radius: 20px;
   display: grid;
   gap: 2em;
@@ -159,19 +171,16 @@ header .container{
   padding: 3em 0;
   width: 100%;
 }
-
 .flip-card {
   height: 25em;
   perspective: 350px;
   text-align: center;
 }
-
 .card {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s;
 }
-
 .card-front,
 .card-back {
   backface-visibility: hidden;
@@ -183,7 +192,6 @@ header .container{
 .card-back {
   display: none;
 }
-
 .img-portfolio{
   border-radius: 5px;
   height: 20em;
@@ -192,7 +200,6 @@ header .container{
   object-position: bottom;
   width: 20em;
 }
-
 .text-back-portfolio{
   align-items: center;
   background-color: rgba(0, 0, 0, 0.25);
@@ -204,9 +211,8 @@ header .container{
   margin-top: 15px;
   width: 20em;  
 }
-
 .card-back p {
-  font-size: 0.5em;
+  font-size: 0.8em;
   padding: 0 3em;
   text-align: left;
 }
@@ -220,11 +226,11 @@ header .container{
     padding: 2em;
   }
   .img-portfolio {
-    height: 10em;
-    width: 10em;
+    height: 14em;
+    width: 14em;
   }
   .flip-card {
-    height: 14em;
+    height: 17em;
   }
   .flip-card:hover .card {
     transform: rotateY(180deg);
@@ -234,8 +240,8 @@ header .container{
     transform: rotateY(180deg);
   }
   .card-back .text-back-portfolio {
-    height: 10em;
-    width: 10em;
+    height: 14em;
+    width: 14em;
   }
 }
 
@@ -265,6 +271,78 @@ header .container{
   }
 }
 
+.habilidades .container{
+  display: flex;
+  align-items: center;
+}
+.habilidades .icones{
+  display: inline-block;
+}
+#colaboracao{
+  fill: #477800;
+  max-width: 100px;
+}
+
+section.formulario{
+  margin-top: 100px;
+}
+.formulario .container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #7BC212;
+  box-shadow: 1px 2px 9px #00000057;
+  border-radius: 20px;
+  padding: 20px 40px;
+  margin-top: -100px;
+}
+
+form {
+  display: flex;
+}
+.form-col-1, 
+.form-col-2, 
+.form-col-3{
+  display: flex;
+  align-items: center;
+}
+.form-col-1{
+  flex-flow: wrap;
+}
+form input{
+  padding: 10px 5px;
+}
+form textarea{
+  padding: 5px;
+}
+form input, form textarea, form button{
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+input, textarea{
+  font-family: inherit;
+}
+textarea:focus, input:focus, form button {
+  background-color: #e1ffb6;
+  outline: 0;
+}
+
+form button{
+  background-color: #477800;
+  fill: #7BC212;
+  padding: 6px 12px;
+}
+form button:hover{
+  background-color: #253f00;
+  transition: all 0.3s;
+}
+
+footer, .formulario{
+  background-color: #477800;  
+  padding-top: 40px;
+}
 .redes .icons{
   text-align: center;
 }
