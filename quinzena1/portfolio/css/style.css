@@ -1,3 +1,4 @@
+/* Padronizações globais */
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +20,7 @@ section{
 h1{
   font-size: 3em;
 }
+
 h2{
   font-size: 2em;
   margin-bottom: 20px;
@@ -28,24 +30,24 @@ p{
   padding-bottom: 10px;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+  max-width: 1180px;
+}
+
 .one-second{
   width: 47%;
 }
+.one-third{
+  width: 33%;
+}
+.two-third{
+  width: 66%;
+}
 
 
-.icone-sobre{
-  display: inline-block;
-  width: 35%;
-}
-.icone-sobre svg{
-  max-width: 100%;
-}
-.texto-sobre{
-  display: inline-block;
-  width: 56%;
-  padding-left: 80px;
-  text-align: justify;
-}
 /*CABEÇALHO*/
 header{
   /* position: fixed;
@@ -66,7 +68,7 @@ header .container{
 }
 /*menu*/
 .menu{
-  padding: 0.5em 1em;
+  padding: 8px 16px;
   width: 100vw;
   top: 0;
 }
@@ -78,13 +80,11 @@ header .container{
   background: none;
   border-radius: 5px;
   list-style: none;
-  margin: 0 1em 0;
+  margin: 0 16px 0;
 }
 .menu a {
   color: #000;
   display: block;
-  font-size: 1em;
-  font-weight: b;
   padding: 10px 20px;
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
@@ -92,43 +92,11 @@ header .container{
 .menu a:active,
 .menu a:hover{
   background-color: #7BC212;
-  border-radius: 03px;
-  color: black;
+  border-radius: 3px;
   text-decoration: none;
 }
 /*fim menu*/
 /*FIM CABEÇALHO*/
-
-.site-title {
-  border-right: 3px solid #3b3b3b;
-  font-weight: 700;
-  line-height: 1.2em;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.site-subtitle {
-  font-style: italic;
-  font-weight: 200;
-  color: #404040;
-  animation: linear 0.4s 3s subtitle-animation forwards;
-  opacity: 0;
-  transform: scale(0.2);
-}
-@keyframes typing {
-  from{ width: 0;}
-  to{ width: 11.6em; }
-}
-.typing-animation {
-  animation: blinkCursor 500ms steps(40) infinite normal, typing 2s steps(40) 1s normal both;
-}
-@keyframes blinkCursor {
-  from{ border-right-color: rgba(0, 0, 0, 0.75); }
-  to{ border-right-color: transparent; }
-}
-@keyframes subtitle-animation {
-  100%{ opacity: 1; transform: scale(1); }
-}
-
 .capa .container{
   display: flex;
   align-items: center;
@@ -138,18 +106,49 @@ header .container{
 .capa .titulo{
   padding-left: 50px;
 }
+
+
+.site-title {
+  border-right: 3px solid #3b3b3b;
+  font-weight: 700;
+  line-height: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.typing-animation {
+  animation: blinkCursor 500ms steps(40) infinite normal, typing 2s steps(40) 1s normal both;
+}
+@keyframes typing {
+  from{ width: 0;}
+  to{ width: 11.6em; }
+}
+@keyframes blinkCursor {
+  from{ border-right-color: rgba(0, 0, 0, 0.75); }
+  to{ border-right-color: transparent; }
+}
+
+.site-subtitle {
+  font-style: italic;
+  font-weight: 200;
+  color: #404040;
+  animation: linear 0.4s 3s subtitle-animation forwards;
+  opacity: 0;
+  transform: scale(0.2);
+}
+@keyframes subtitle-animation {
+  100%{ opacity: 1; transform: scale(1); }
+}
+
 .capa .foto{
   text-align: center;
+  padding: 0 30px;
 }
 .capa .foto img{
   -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#7BC212), to(#fff), color-stop(0.5, #fff), color-stop(1, #66cc00)) 21 30 30 21 repeat repeat;
 }
 
-.capa div,
-.estudos div{
-  display: inline-block;  
-  padding: 5px 30px;
-  vertical-align: top;
+.titulo, .foto, .icone-sobre, .texto-sobre, .cursos{
+  display: inline-block;
 }
 
 
@@ -158,15 +157,25 @@ header .container{
   color: #FFF;
 }
 
+.sobre h2, .projetos h2, .habilidades h2, footer h3{
+  text-align: center;
+}
+
+.icone-sobre svg{
+  max-width: 100%;
+}
+.texto-sobre{
+  width: 56%;
+  padding-left: 80px;
+  text-align: justify;
+}
 .cursos{
   width: 35%;
+  padding: 5px;
 }
 
 .estudos{
   padding-bottom: 400px;
-  text-align: center;
-}
-.sobre h2, .projetos h2, footer h3{
   text-align: center;
 }
 
@@ -174,6 +183,7 @@ header .container{
   max-width: 100px;
 }
 
+/*pixel invisível para âncora de menu*/
 #projetos{
   position: absolute;
   width: 1px;
@@ -183,12 +193,7 @@ header .container{
   background-color: transparent;
   z-index: -1;
 }
-
-.projetos {
-  /* min-height: 100vh; */
-  padding-bottom: 1em;
-  padding-top: calc(1em + 0.7em + 20px + 1.2em);
-}
+/*fim*/
 
 .projetos .container{
   margin-top: -400px;
@@ -201,8 +206,6 @@ header .container{
   border-radius: 20px;
   display: grid;
   gap: 2em;
-  min-height: 90em;
-  padding: 3em 0;
 }
 .flip-card {
   height: 25em;
@@ -235,7 +238,7 @@ header .container{
 }
 .text-back-portfolio{
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   color: whitesmoke;
   display: flex;
@@ -250,9 +253,6 @@ header .container{
   text-align: left;
 }
 @media(min-width: 560px){
-  .sobre .profile img{
-    max-width: 250px;
-  }
   .projetos .grid{
     grid-template-columns: 240px 240px;
     min-height: 60em;
@@ -284,39 +284,57 @@ header .container{
     min-height: 36em;
   }
 }
-@media (min-width: 1280px){
-  .container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1180px;
-  }
-}
 
-@media (min-width: 2000px){
-  .menu a {
-    font-size: 1.5em;
-  }
-  .sobre,
-  .portfolio {
-  min-height: 50vh;
-  padding-top: calc(1em + 0.7em + 20px + 1.2em);
-  padding-bottom: 1em;
-  }
+.habilidades{
+  padding: 100px 0;
 }
-
 .habilidades .container{
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
-.habilidades .icones{
-  display: inline-block;
+.icones-habilidades{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.habilidades .icone{
   text-align: center;
-  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 130px;
 }
 .habilidades svg{
   fill: #477800;
   max-width: 100px;
 }
+
+/**********SE DER TEMPO***********/
+.esconder{
+  display: none;
+  text-align: center;
+  padding: 10px;
+}
+
+.colaboracao:hover svg, .colaboracao:hover h3,
+.curiosidade:hover svg, .curiosidade:hover h3,
+.organizacao:hover svg, .organizacao:hover h3,
+.logico:hover svg, .logico:hover h3,
+.comunicacao:hover svg, .comunicacao:hover h3{
+  display: none;
+}
+.colaboracao:hover .esconder, 
+.curiosidade:hover .esconder,
+.organizacao:hover .esconder,
+.logico:hover .esconder,
+.comunicacao:hover .esconder{
+  display: inline-block;
+  max-width: 150px;
+  text-align: left;
+  font-size: 0.9em;
+}
+/*FIM*/
 
 section.formulario{
   margin-top: 100px;

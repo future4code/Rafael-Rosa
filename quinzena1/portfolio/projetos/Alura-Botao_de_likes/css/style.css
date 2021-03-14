@@ -198,11 +198,11 @@ button#botaofb {
   box-shadow: 0px 3px 10px rgba(0,0,0,.25);
 }
 button#botaoig {
-  background-image: url(https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.konfest.com/wp-content/uploads/2019/05/Konfest-PNG-JPG-Image-Pic-Photo-Free-Download-Royalty-Unlimited-clip-art-sticker-Heart-Valentines-Day-love-42.png);
+  background-image: url('../img/instagram-like.png');
   background-color: #ffffff;
   color: #000;
-  background-size: 65px;
-  background-position: 5px 80%;
+  background-size: 50px;
+  background-position: 10px 76%;
   background-repeat: no-repeat;
   margin: auto;
   width: 200px;
