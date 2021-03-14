@@ -21,19 +21,43 @@ h1{
 }
 h2{
   font-size: 2em;
+  margin-bottom: 20px;
+}
+
+p{
+  padding-bottom: 10px;
 }
 
 .one-second{
   width: 47%;
 }
 
+
+.icone-sobre{
+  display: inline-block;
+  width: 35%;
+}
+.icone-sobre svg{
+  max-width: 100%;
+}
+.texto-sobre{
+  display: inline-block;
+  width: 56%;
+  padding-left: 80px;
+  text-align: justify;
+}
 /*CABEÇALHO*/
+header{
+  /* position: fixed;
+  z-index: 99; */
+  width: 100%;
+  background-color: #FFF;
+  border-bottom: 1px solid #339a3f1f;
+}
 header .container{
   align-items: center;
-  border-bottom: 1px solid #339a3f1f;
   display: flex;
   justify-content: center;
-  background-color: #FFF;
   padding: 10px 0;
 }
 .logo img {
@@ -129,7 +153,7 @@ header .container{
 }
 
 
-.sobre, .estudos{
+.sobre, .estudos, .projetos h2{
   background-color: #477800;
   color: #FFF;
 }
@@ -142,12 +166,22 @@ header .container{
   padding-bottom: 400px;
   text-align: center;
 }
-.sobre h2, .projetos H2, footer h3{
+.sobre h2, .projetos h2, footer h3{
   text-align: center;
 }
 
 .estudos img{
   max-width: 100px;
+}
+
+#projetos{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: 0;
+  margin-top: -400px;
+  background-color: transparent;
+  z-index: -1;
 }
 
 .projetos {
@@ -169,7 +203,6 @@ header .container{
   gap: 2em;
   min-height: 90em;
   padding: 3em 0;
-  width: 100%;
 }
 .flip-card {
   height: 25em;
@@ -277,8 +310,10 @@ header .container{
 }
 .habilidades .icones{
   display: inline-block;
+  text-align: center;
+  padding: 10px;
 }
-#colaboracao{
+.habilidades svg{
   fill: #477800;
   max-width: 100px;
 }
@@ -343,16 +378,21 @@ footer, .formulario{
   background-color: #477800;  
   padding-top: 40px;
 }
-.redes .icons{
+
+footer .container{
+  padding: 0 0 50px 0;
+}
+footer .icons{
   text-align: center;
 }
-.redes a{
+footer a{
   color: #000;
   display: inline-block;
-  font-size: 1em;
+  font-size: 1.3em;
   text-decoration: none;
+  padding: 5px 10px;
 }
-.redes a:active,
-.redes a:hover{
-  text-shadow: 1px 1px limegreen;
+footer a:active,
+footer a:hover{
+  text-shadow: 1px 1px #7BC212;
 }
