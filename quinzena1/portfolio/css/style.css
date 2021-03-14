@@ -47,11 +47,26 @@ p{
   width: 66%;
 }
 
+/*botão flutuante voltar ao topo*/
+.botao-topo{
+  display: block;
+  background-color: #7BC212;
+  border-radius: 3px;
+  padding: 2px 5px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 15px;
+  text-align: center;
+}
+.botao-topo a{
+  text-decoration: none;
+  color: #fff;
+}
+
 
 /*CABEÇALHO*/
 header{
-  /* position: fixed;
-  z-index: 99; */
   width: 100%;
   background-color: #FFF;
   border-bottom: 1px solid #339a3f1f;
@@ -97,6 +112,7 @@ header .container{
 }
 /*fim menu*/
 /*FIM CABEÇALHO*/
+
 .capa .container{
   display: flex;
   align-items: center;
@@ -106,7 +122,6 @@ header .container{
 .capa .titulo{
   padding-left: 50px;
 }
-
 
 .site-title {
   border-right: 3px solid #3b3b3b;
@@ -150,7 +165,6 @@ header .container{
 .titulo, .foto, .icone-sobre, .texto-sobre, .cursos{
   display: inline-block;
 }
-
 
 .sobre, .estudos, .projetos h2{
   background-color: #477800;
@@ -310,13 +324,9 @@ header .container{
   max-width: 100px;
 }
 
-/**********SE DER TEMPO***********/
 .esconder{
   display: none;
-  text-align: center;
-  padding: 10px;
 }
-
 .colaboracao:hover svg, .colaboracao:hover h3,
 .curiosidade:hover svg, .curiosidade:hover h3,
 .organizacao:hover svg, .organizacao:hover h3,
@@ -333,8 +343,8 @@ header .container{
   max-width: 150px;
   text-align: left;
   font-size: 0.9em;
+  cursor: default;
 }
-/*FIM*/
 
 section.formulario{
   margin-top: 100px;
@@ -413,4 +423,18 @@ footer a{
 footer a:active,
 footer a:hover{
   text-shadow: 1px 1px #7BC212;
+}
+
+/*Estilo da barra de rolagem*/
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.95);
+  border: none;
+  border-radius: 0 1px 1px 0;
+}
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+::-webkit-scrollbar-thumb {
+  background: #7BC212;
+  border-radius: 5px;
 }
