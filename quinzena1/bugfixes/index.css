@@ -70,8 +70,9 @@ button:focus, button:active {
     display: inline-block;
 }
 
-#container-de-descricao>ol {
+#container-de-descricao ol {
     padding: 15px 0px;
+    display: inline-block;
 }
 
 #container-para-comprar {
