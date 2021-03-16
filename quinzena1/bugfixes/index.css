@@ -29,9 +29,9 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
+/* div>p:first-child {
     display: inline;
-}
+} */
 
 div img {
     background: black;
