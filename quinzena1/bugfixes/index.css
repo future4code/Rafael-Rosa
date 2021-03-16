@@ -7,6 +7,8 @@
 * {
     margin: 0;
     padding: 0;
+    box-shadow: none;
+    outline: none;
 }
 
 html{
@@ -23,6 +25,7 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    dor
 }
 
 button:focus, button:active {
