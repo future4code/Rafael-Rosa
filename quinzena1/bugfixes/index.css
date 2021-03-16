@@ -131,6 +131,18 @@ td button:hover {
     border-width: 0 0 3px 0;
 }
 
+.container-do-search button:hover {
+    opacity: 0.5;
+}
+.container-do-search button:active {
+    opacity: 1;
+}
+
+.container-do-search button {
+    padding: 5px;
+}
+
+
 .botao-voltar{
     text-align: center;
 }
