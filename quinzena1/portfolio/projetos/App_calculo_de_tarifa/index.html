@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/30fe2c1c74.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="../../img/favicon.png" />
+    <title>App tipo Uber</title>
+</head>
+<body>
+  <header>
+    <input type="checkbox" id="bt_menu">
+    <label for="bt_menu">MENU &#9776;</label>
+          
+    <nav class="menu">
+        <ul>
+            <li><a href="../../index.html"><i class="fas fa-home"></i></a></li>  
+            <li><a href="../Calculo_de_IMC/index.html">Calculadora de IMC</a></li>
+            <li><a href="../tabuada/index.html">Tabuada</a></li>
+            <li><a href="../App_Sorteio/index.html" >Sorteador de números</a></li>
+            <li><a href="#" id="selected">Calculadora de tarifa</a></li>
+            <li><a href="../Alura-Botao_de_likes/index.html">Botão de Likes</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="conteudo">
+      <label for="inputDistancia"> Distância em km: </label>
+      <input id="inputDistancia" type="text" onfocus="this.value = ''">
+      
+      <label for="inputTempo"> Tempo em min: </label>
+      <input id="inputTempo" type="text" onfocus="this.value = ''">
+
+      
+      
+      <button id="botaoCalcular" onclick="calcular()">
+        Calcular
+      </button>
+
+    </div>
+
+    <footer>
+      <p>Html e css base por Alura</p>
+      <p>JS, menu, modificações e personalização: Rafael S. da Rosa</p>
+    </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

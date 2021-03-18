@@ -1,0 +1,270 @@
+* {
+  color: #121212;
+}
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+/*todos os elementos agora levarão em conta apenas a largura e altura determinada, sem somar a este valor a borda e o padding.*/
+*, *:before, *:after {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+/****CORPO DA PÁGINA****/
+body{
+  /*Determina a largura máxima do conteúdo (desktop)*/
+  max-height: 100vh;
+  max-width: 98vw;
+  margin: 0;
+
+  background-color: #BFDDD8;
+
+  /*Padronizar o tamanho da fonte de referência*/
+  font: normal 10px Verdana; 
+}
+
+/*BARRA DE MENU*/
+header{
+  width: 100%;
+  height: 40px;
+  margin-top: 1.5em;
+  margin-bottom: 2.5em;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.menu ul {
+  list-style:none;
+  text-align: center;
+  padding: 0;
+}
+.menu li { 
+  display: inline; 
+}
+.menu a {  
+  border-radius: 0.5em;
+  display: inline-block;
+  margin: 5px 0;
+  padding: 5px 10px;
+  
+  /* visual do link */
+  background-color:#FFF;
+  color: #2b8f7e;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.menu ul li a:hover {
+  background-color:#D6D6D6;
+  border-bottom:2px solid #2b8f7e;
+  color: #6D6D6D;
+}
+#selected{
+  background-color:#2b8f7e;
+  color: whitesmoke;
+}
+
+/*MENU NO MOBILE*/
+header label[for="bt_menu"]{
+  padding: 1em;
+  color: #324474;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer; 
+  display: none;
+}
+#bt_menu{
+  display: none; /*checkbox*/
+}
+
+@media(max-width: 800px){
+  header{
+    margin-bottom: 0.5em;
+    z-index: 998;
+  }
+
+  header label[for="bt_menu"]{
+    background-color: #2b8f7e;
+    border-radius: 0 0 10px 0;
+    color: whitesmoke;
+    display: block;
+    width: fit-content;
+    margin-top: -1.5em; /*zerando margem do header*/
+  }
+
+  .menu{
+    display: none;
+    position: relative;
+    z-index: 999;
+  }
+  #bt_menu:checked ~ .menu{
+    display: block;    
+  }
+  #selected{
+    display: none;
+  }
+
+  .menu ul{
+    margin-top: 0;
+    background-color: #FFF;
+  }
+  .menu a{
+    border-bottom: 1px solid rgba(50, 68, 116, 0.3);
+    border-radius: 0;
+    margin: 0;
+    width: 100vw;
+    float: none;
+  }
+}
+/*Fim mobile*/
+/*Fim do menu*/
+
+
+.conteudo {
+  width: 28em;
+  height: 62em;
+  padding: 3em 1em;
+  margin: 6em auto 0;
+
+  border-radius: 40px;
+  border: 5px solid currentColor;
+  box-sizing: border-box;
+  
+  overflow: hidden;
+  position: relative;
+  color: #454545;
+  
+  background-image:
+    linear-gradient(
+      currentColor 50px, 
+      transparent 50px, 
+      transparent calc(100% - 50px), 
+      currentColor calc(100% - 50px), 
+      currentColor
+    ),
+    linear-gradient(
+      90deg, 
+      rgba(0,0,0,.2) 2px, 
+      transparent 5px, 
+      transparent calc(100% - 5px), 
+      rgba(0,0,0,.2) calc(100% - 2px)
+    ),
+     linear-gradient(
+      to bottom,
+      transparent, 
+      transparent calc(100% - 55px), 
+      rgba(0,0,0,.2) calc(100% - 52px),
+      rgba(0,0,0,.2) calc(100% - 52px)
+    ),
+    url('https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png');
+  
+  background-size: 
+    100% 100%, 
+    100% 100%, 
+    100% 100%,
+    cover;
+  
+  background-position: 
+     0 0,
+     0 0,
+     0 0,
+     cover;
+    
+   background-repeat: no-repeat;
+}
+@media (max-width: 800px){
+  .conteudo{
+    margin-top: 3em;
+  }
+}
+
+.conteudo input {
+  border: none;
+  border-bottom: 2px solid #cacaca;
+  display: block;
+  line-height: 3em;
+  position: relative;
+  left: -1rem;
+  z-index: 1;
+  padding-left: 9.2em;
+  color: #2b8f7e;
+  font-weight: bolder;
+}
+
+.conteudo input:last-of-type {
+  border-bottom: none;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+  margin-bottom: 1em;
+}
+
+.conteudo label {
+  display: block;
+  height: 0;
+  
+  position: relative;
+  z-index: 950;
+  
+  text-transform: uppercase;
+  line-height: calc(2.5em / .6);
+
+}
+
+#divResultado {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  background: rgba(255, 255, 255, 0.9);
+  margin: auto;
+  height: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 0 12px 2px rgba(0,0,0,.25);
+}
+
+button {
+  width: 100%;
+  padding: 1.5em 0;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  
+  cursor: pointer;
+  
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  border: none;
+  
+  transition: .2s ease;
+  color: #fff;
+  background-color: #2b8f7e;
+  box-shadow: 0 -2px 10px 2px rgba(0,0,0,.25);
+}
+
+button:hover,
+button:active {
+  background-color: #33b19c;
+}
+button:active {
+  font-size: 1.85em;
+  transition: .05s easeout;
+}
+
+footer{
+  color: #000;
+  text-align: center;
+  font-style: italic;
+  margin: 1em;
+}
+footer p {
+  margin: 0;
+}
