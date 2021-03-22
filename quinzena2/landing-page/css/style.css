@@ -4,3 +4,21 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100vw;
+}
+
+header{
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.logo img {
+    width: 200px;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-block;
+}
