@@ -1,0 +1,91 @@
+body {
+    width: 98.7vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#main-container {
+    display: grid;
+    grid-template: repeat(7, 1fr) / repeat(6, 1fr) ;
+    height: 100vh;
+}
+
+#main-container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-container div:nth-child(n+2):nth-child(-n+12){
+    margin: 1vw;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#first-block {
+    background-color: red;
+    grid-column: 1 / -1;
+    border: none;
+}
+
+.blue-block {
+    background-color: blue;
+    grid-column: span 2;
+}
+
+.yellow-block {
+    background-color: yellow;
+    grid-column: span 2;
+}
+
+.green-block {
+    background-color: green;
+    grid-column: span 2;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    grid-column: span 3;
+    grid-row: span 3;
+}
+
+.white-block {
+    background-color: white;
+    grid-column: span 2;
+}
+
+@media screen and (max-width: 800px) {
+    #main-container {
+        grid-template: repeat(10, 1fr) / repeat(4, 1fr) ;
+    }
+
+    .green-block {
+        background-color: green;
+        grid-column: 1 / -1;
+    }
+
+    .black-block {
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    .white-block:nth-of-type(3n) {
+        grid-column: 1 / -1;
+    }
+    
+}
+
+@media screen and (max-width: 420px) {
+    #main-container {
+        grid-template: repeat(14, 1fr) / 1fr ;
+    }
+
+    .black-block {
+        grid-row: span 2;
+    }
+    
+}
