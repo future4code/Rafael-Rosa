@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    width: 100vw;
+    font-family: 'Bitter', serif;
+    width: 98.8vw;
     background-color: chocolate;
 }
 
@@ -14,19 +19,104 @@ header{
     text-align: center;
 }
 
+section {
+    padding: 40px 0;
+}
+
+h1 {
+    font-size: 56px;
+    font-style: italic;
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 24px;
+}
+
+.main-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+}
+
+.column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    position: sticky;
+    top: 3px;
+}
+.answer-buttons {
+    position: sticky;
+    top: 50px;
+}
+.buttons a {
+    margin: 0 50px;
+    padding: 10px 30px;
+    background-color: blueviolet;
+    display: block;
+}
+#texto {display: none;}
+
+#texto:target{
+    display: block;
+}
+
+.div2 {
+    display: block;
+    margin: 50px;
+    background-color: rgb(226, 43, 43);
+}
+#texto2 {display: none;}
+
+#texto2:target{
+    display: block;
+}
+
+
+
 header .main-container{
     display: grid;
     grid-template-columns: 40% 60%;
 }
 
-.main-container {
-    max-width: 1200px;
+.logo {
+    justify-self: flex-start;
 }
-
 
 .logo img {
     width: 80px;
 }
+
 
 nav ul {
     height: 100%;
@@ -34,4 +124,29 @@ nav ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+section.cover {
+    background: url('../img/background-cover.jpg') right center no-repeat;
+    background-size: cover;
+}
+
+.cover-text {
+    width: 50%;
+    color: #FFF;
+}
+
+.options img {
+    max-width: 100px;
+}
+
+
+
+
+.appstore img {
+    max-width: 150px;
+}
+
+.social img {
+    width: 50px;
 }
