@@ -379,6 +379,13 @@ footer {
     100% {border-color: transparent;}
 }
 
+.copy {
+    text-align: center;
+    font-size: small;
+}
+
+
+
 /***RESPONSIVIDADE***/
 @media screen and (min-width: 451px) and (max-width: 800px) {
     /***GLOBAIS (451px - 800px)***/
