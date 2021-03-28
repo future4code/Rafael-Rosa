@@ -8,109 +8,219 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+    <title>4Food</title>
 </head>
 
 <body>
-    <header>
-        <div class="main-container">
-            <div class="logo">
-                <img src="./img/logo-4food.png " alt="Logotipo 4food">
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#">Seção 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Seção 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Seção 3</a>
-                    </li>
-                    <li>
-                        <a href="#">Seção 4</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
     <main>
         <section class="cover">
+            <header>
+                <!-- <div> -->
+                    <div class="logo">
+                        <img src="./img/logo-4food.png " alt="Logotipo 4food">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#options">Opções</a>
+                            </li>
+                            <li>
+                                <a href="#step-by-step">Como Funciona</a>
+                            </li>
+                            <li>
+                                <a href="#faq">Perguntas Frequentes</a>
+                            </li>
+                        </ul>
+                    </nav>
+                <!-- </div> -->
+            </header>
             <div class="main-container">
                 <div class="cover-text">
                     <h1>Você prefere escolher os ingredientes ou receber a comida pronta em casa?</h1>
-                    <h3>Com o 4Food você pode ter os 2, no conforto do seu lar, com entregas semanais agendadas!</h3>
+                    <h3>Com o 4Food você pode ter os 2, onde você quiser, com entregas semanais agendadas!</h3>
+                    <div class="badges-cover row-start">
+                        <a href="https://play.google.com" target="_blank">
+                            <img src="./img/button-googleplay.svg" alt="Google Play Badge">
+                        </a>
+                        <a href="https://apps.apple.com" target="_blank">
+                            <img src="./img/button-appstore.svg" alt="Apple Store Badge">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="options">
-            <div class="two-column main-container">
-                <div class="column-center option-1">
+
+        <section id="options">
+            <div class="two-column mobile-two-row main-container">
+                <div class="column-top box-option">
+                    <img src="./img/online-shopping.png" alt="Cestinha de compras">
+                    <h3>Selecione cada ingrediente</h3>
+                    <p>Escolha uma vez os itens que você compra com frequência e deixa que a gente entrega semanalmente
+                        no seu local escolhido. É mais comodidade e tempo livre pra você!</p>
+                </div>
+                <div class="column-top box-option">
                     <img src="./img/food-delivery.png" alt="Entrega de comida">
-                    <h3>Não quero cozinhar</h3>
+                    <h3>Comida pronta toda semana</h3>
                     <p>Escolha seus pratos favoritos e receba toda a semana no seu local de preferência.</p>
                 </div>
-                <div class="column-center option-2">
-                    <img src="./img/online-shopping.png" alt="Cestinha de compras">
-                    <h3>Quero escolher cada ingrediente</h3>
-                    <p>Escolha uma vez os itens que você compra com frequência e deixa que a gente entrega semanalmente no seu local escolhido. É mais comodidade e tempo livre pra você!</p>
-                </div>
             </div>
         </section>
-        <section class="step-by-step">
-            <div class="main-container">
+
+        <section id="step-by-step">
+            <div class="main-container column-center">
                 <h2>Precisa de ajuda para programar sua semana?</h2>
-<div class="limite">
-    <div class="buttons row-center">
-        <a href="#texto">itens</a>
-        <a href="#texto2">comida</a>
-    </div>
-    
-    <div class="answer-buttons column-center">
-        <div id="texto"> texto aqui</div>
-        <div id="texto2"> texto aquitexto aquitexto aquitexto aquitexto aquitexto aquitexto aquitexto aqui</div>
-    </div>
 
-</div>
+                <div class="box-target">
+                    <div class="buttons row-center">
+                        <a href="#texto">Para escolher os produtos</a>
+                        <a href="#texto2">Para escolher as refeições</a>
+                    </div>
 
-
-                <div class="column-center option-1">
-                    <img src="./img/food-delivery.png" alt="Entrega de comida">
-                    <h3>Não quero cozinhar</h3>
-                    <p>Escolha seus pratos favoritos e receba toda a semana no seu local de preferência.</p>
-                </div>
-                <div class="column-center option-2">
-                    <img src="./img/online-shopping.png" alt="Cestinha de compras">
-                    <h3>Quero escolher cada ingrediente</h3>
-                    <p>Escolha uma vez os itens que você compra com frequência e deixa que a gente entrega semanalmente no seu local escolhido. É mais comodidade e tempo livre pra você!</p>
+                    <div class="answer-buttons column-center">
+                        <div id="texto">
+                            <img src="./img/groceries.png" alt="">
+                            <p>
+                                1. Escolha os produtos
+                            </p>
+                            <img src="./img/clock.png" alt="">
+                            <p>
+                                2. Escolha o melhor horário para entrega
+                            </p>
+                            <img src="./img/wallet.png" alt="">
+                            <p>
+                                3. Selecione a forma de pagamento
+                            </p>
+                            <img src="./img/shopping-check.png" alt="">
+                            <p>
+                                4. Pronto! Agora é só aproveitar seu tempo sem se preocupar em ter que ir ao mercado!
+                            </p>
+                        </div>
+                        <div id="texto2">
+                            <img src="./img/food.png" alt="">
+                            <p>
+                                1. Escolha o pacote de refeições de sua preferência
+                            </p>
+                            <img src="./img/clock.png" alt="">
+                            <p>
+                                2. Escolha o melhor horário para entrega
+                            </p>
+                            <img src="./img/wallet.png" alt="">
+                            <p>
+                                3. Selecione a forma de pagamento
+                            </p>
+                            <img src="./img/relax.png" alt="">
+                            <p>
+                                4. Pronto! Agora é só aguardar para receber sua comida prontinha!
+                            </p>
+                        </div>                    </div>
                 </div>
             </div>
         </section>
+
+        <section id="highligth">
+            <div class="layer row-center">
+                <img src="./img/quote.png" alt="imagem Aspas" class="quote-img">
+                <h2>
+                    Comida de qualidade, com muita praticidade e comodidade!
+                </h2>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="two-column mobile-faq-grid main-container">
+                <div class="column-center box-empty">
+                </div>
+                <div class="column-top box-faq">
+                    <h2>Dúvidas Frequentes</h2>
+                    <div class="accordions"> 
+                        <div class="accordion-item">
+                            <input type="radio" name="accordion" id="accordion-1" />
+                            <label for= "accordion-1"> Como funciona a compra de produtos?</label>
+                            <div class="accordion-content">Você monta sua cesta, seleciona quando quer receber e finaliza sua compra. Aí é só relaxar: você receberá em casa suas compras com praticidade e economia. Somos um modelo de entregas semanais, então uma entrega fica pré-agendada todas as semanas. Mas fique tranquilo, nós te mandamos avisos (por e-mail, SMS, WhatsApp...) e você pode alterar sua cesta e data de entrega sempre que quiser (além de poder suspender ou cancelar o serviço, sem custo algum!).</div>
+                        </div> 
+                        <div class="accordion-item">
+                            <input type="radio" name="accordion" id="accordion-2" />
+                            <label for= "accordion-2">E a compra de refeições?</label>
+                            <div class="accordion-content">Para as refeições, você monta o pacote que deseja, com 7 ou 14 refeições.Então seleciona quando quer receber e finaliza sua compra. Assim como a compra de produtos, sua entrega fica pré-agendada todas as semanas e te avisamos previamente.</div>
+                        </div> 
+                        <div class="accordion-item">
+                            <input type="radio" name="accordion" id="accordion-3" />
+                            <label for= "accordion-3"> Que tipo de produtos o 4Food entrega? </label>
+                            <div class="accordion-content">Alimentos não perecíveis, bebidas, produtos de limpeza, de higiene pessoal e de utilidade (também temos ração para pets, cervejas artesanais, snacks saudáveis, etc. Sempre acompanhados de muita economia).</div>
+                        </div>
+                        <div class="accordion-item">
+                            <input type="radio" name="accordion" id="accordion-4" />
+                            <label for= "accordion-4">  Posso alterar minha cesta de uma semana para outra?  </label>
+                            <div class="accordion-content">Sim! Sempre te lembramos da sua próxima entrega (com e-mail, SMS, WhatsApp...), para que você possa entrar no app e acrescentar ou excluir produtos de sua cesta (alterar data, suspender a entrega ou cancelar o serviço) ou mudar as refeições, antes de confirmar seu pedido. Estamos aqui para te ajudar a deixar sua vida mais fácil.</div>
+                        </div>
+                        <div class="accordion-item">
+                            <input type="radio" name="accordion" id="accordion-5" />
+                            <label for= "accordion-5">   Esse serviço tem custo de "assinatura"?   </label>
+                            <div class="accordion-content">Não. Sem custos de assinatura e sem burocracia ou taxas caso queira cancelar nosso serviço. Para cancelar a recorrência, um e-mail basta. Simples assim!</div>
+                        </div>
+                        <div class="accordion-item">
+                            <input type="radio" name="accordion" id="accordion-6" />
+                            <label for= "accordion-6"> o 4Food cobra frete ou taxa de entrega?    </label>
+                            <div class="accordion-content">O frete é grátis para compras de pelo menos R$ 150,00. Só é cobrado R$ 9,90 de frete para compras abaixo de R$ 150,00.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highligth-2">
+            <div class="layer row-center">
+                <img src="./img/quote.png" alt="imagem Aspas" class="quote-img">
+                <h2>
+                    Os produtos que você ama, no conforto da sua casa!
+                </h2>
+            </div>
+        </section>
+        <a href="#" class="back-to-top-button">&#5169;</a>
     </main>
 
     <footer>
-        <div class="three-column main-container">
-            <div class="sitemap column-center">
-                <ul>
-                    <li>Seção 1</li>
-                    <li>Seção 2</li>
-                    <li>Seção 3</li>
-                </ul>
+        <div class="three-column mobile-three-row main-container">
+            <div class="sitemap column-top">
+                <h3>Navegue</h3>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#options">Opções</a>
+                        </li>
+                        <li>
+                            <a href="#step-by-step">Como Funciona</a>
+                        </li>
+                        <li>
+                            <a href="#faq">Perguntas Frequentes</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class="appstore column-center">
-                <img src="./img/button-googleplay.svg" alt="Google Play Badge">
-                <img src="./img/button-appstore.svg" alt="Apple Store Badge">
+            <div class="badges-footer column-top">
+                <h3>Baixe o APP</h3>
+                <a href="https://play.google.com" target="_blank">
+                    <img src="./img/button-googleplay.svg" alt="Google Play Badge">
+                </a>
+                <a href="https://apps.apple.com" target="_blank">
+                    <img src="./img/button-appstore.svg" alt="Apple Store Badge">
+                </a>
             </div>
-            <div class="social column-center">
+            <div class="social column-top">
                 <h3>Siga-nos nas redes sociais</h3>
                 <div class="social-logos">
-                    <img src="./img/facebook.svg" alt="Facebook logo">
-                    <img src="./img/instagram.svg" alt="instagram logo">
-                    <img src="./img/twitter.svg" alt="twitter logo">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="./img/facebook.svg" alt="Facebook logo">
+                    </a>
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="./img/instagram.svg" alt="instagram logo">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="./img/twitter.svg" alt="twitter logo">
+                    </a>
                 </div>
             </div>
         </div>
