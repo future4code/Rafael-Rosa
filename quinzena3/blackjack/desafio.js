@@ -11,3 +11,19 @@
  * 
  */
 
+let cartasUsuario = [comprarCarta(), comprarCarta()];
+let cartasComputador = [comprarCarta(), comprarCarta()];
+
+console.log(cartasUsuario[0].texto.slice(0, 1))
+console.log(cartasUsuario[1].texto.slice(0, 1))
+console.log(cartasComputador[0].texto.slice(0, 1))
+console.log(cartasComputador[1].texto.slice(0, 1))
+
+verificaAA = Boolean(cartasUsuario[0].texto.slice(0, 1) == "A" && cartasUsuario[1].texto.slice(0, 1) == "A") || Boolean(cartasComputador[0].texto.slice(0, 1) == "A" && cartasComputador[1].texto.slice(0, 1) == "A");
+
+console.log(verificaAA);
+
+if (verificaAA){
+   cartasUsuario = [comprarCarta(), comprarCarta()];
+   cartasComputador = [comprarCarta(), comprarCarta()];
+}
