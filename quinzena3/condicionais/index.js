@@ -54,3 +54,13 @@ switch (turnoEstudos) {
     default:
         console.log("Resposta inválida. Por favor, atualize a página e responda novamente.");
 }
+
+// 7.
+let generoFilme = prompt("Qual o gênero do filme que irá assistir?");
+let precoIngresso = Number(prompt("Qual o valor do ingresso? (digite somente números)"));
+
+if (generoFilme === "fantasia" && precoIngresso < 15) {
+    console.log("Bom filme!");
+} else {
+    console.log("Escolha outro filme :(")
+}
