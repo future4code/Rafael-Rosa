@@ -62,5 +62,5 @@ let precoIngresso = Number(prompt("Qual o valor do ingresso? (digite somente nú
 if (generoFilme === "fantasia" && precoIngresso < 15) {
     console.log("Bom filme!");
 } else {
-    console.log("Escolha outro filme :(")
+    console.log("Escolha outro filme :(");
 }
