@@ -11,112 +11,140 @@
  * 
  */
 
-let cartasUsuario = [];
+let maoUsuario = [];
 let pontuacaoUsuario;
 
-let cartasComputador = [];
+let maoComputador = [];
 let pontuacaoComputador;
 
 let verificaAA;
 
 do {
-   cartasUsuario = [comprarCarta(), comprarCarta()];
-   pontuacaoUsuario = Number(cartasUsuario[0].valor + cartasUsuario[1].valor);
+   maoUsuario = [comprarCarta(), comprarCarta()];
+   pontuacaoUsuario = Number(maoUsuario[0].valor + maoUsuario[1].valor);
 
-   cartasComputador = [comprarCarta(), comprarCarta()];
-   pontuacaoComputador = Number(cartasComputador[0].valor + cartasComputador[1].valor);
+   maoComputador = [comprarCarta(), comprarCarta()];
+   pontuacaoComputador = Number(maoComputador[0].valor + maoComputador[1].valor);
 
    verificaAA = Boolean((pontuacaoUsuario === 22) || (pontuacaoComputador === 22));
 } while (verificaAA);
 
-console.log(cartasUsuario);
-console.log(pontuacaoUsuario);
+console.log(maoUsuario);
+console.log("pontuacaoUsuario: " + pontuacaoUsuario);
 console.log("teste");
 
-let comprarNovaCarta;
+let seguirComprando;
 let textoCartas = "";
 
 do {
-   comprarNovaCarta = confirm(`Suas cartas são ${mostrarCarta()}. A carta revelada do computador é ${cartasComputador[0].texto}.\nDeseja comprar mais uma?`);
-   
-   if (comprarNovaCarta) {
-      novaCarta(cartasUsuario);
-   }
-   
-   console.log(cartasUsuario);
-   console.log(pontuacaoUsuario);
-   console.log(comprarNovaCarta)
-   console.log(pontuacaoComputador);
-} while (comprarNovaCarta && pontuacaoUsuario < 21);
+   turnoUsuario();
+} while (seguirComprando && pontuacaoUsuario < 21);
+
+if (!seguirComprando) {
+   turnoComputador();
+}
+
+// turnoComputador();
+
 
 // Fim de jogo
-if (pontuacaoUsuario > 21 ) {
-   alert("O jogo acabou. Sua pontuação ultrapassou 21");
+if (pontuacaoUsuario > 21) {
+   alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario} e ultrapassou 21.\nVocê perdeu.`);
 } else if (pontuacaoUsuario > pontuacaoComputador) {
-   alert("O usuário venceu.");
+   alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\nVocê ganhou!`);
 } else if (pontuacaoUsuario < pontuacaoComputador) {
-   alert("O computador venceu.");
+   alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\nO computador ganhou!`);
 } else if (pontuacaoUsuario === pontuacaoComputador) {
-   alert("Empate!");
+   alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\nO jogo terminou empatado!`);
 }
-   
-
-// do {
-//    let indice = 0
-//    let comprarNovaCarta = usuarioNovaCarta();
-
-//    let comprarOutra = confirm(`Suas cartas são ${cartasUsuario[0].texto} e ${cartasUsuario[1].texto}. A carta revelada do computador é ${cartasComputador[0].texto}.` + "\n" + "Deseja comprar mais uma carta?");
-
-// } while ();
 
 
-function mostrarCarta() {
-   for (let index = 0; index < cartasUsuario.length; index++){
-      // let apoio = String(cartasUsuario[index].texto + " ");
-      // let apoio2 = 
-      textoCartas += String(cartasUsuario[index].texto + " ");
-      // apoio = textoCartas
-      // textoCartas = "";
-      // apoio = "";
-      // apoio2 = "";
+// TURNO USUÁRIO
+function turnoUsuario() {
+
+   seguirComprando = confirm(`Suas cartas são ${mostrarCartaUsuario()}. A carta revelada do computador é ${maoComputador[0].texto}.\nDeseja comprar mais uma carta?`);
+
+   if (seguirComprando) {
+      novaCarta(maoUsuario);
+      pontuacaoUsuario = atualizaPontuacao(maoUsuario, pontuacaoUsuario);
    }
+
+}
+
+// // TURNO COMPUTADOR
+function turnoComputador(){
+
+   if (pontuacaoComputador < 21) {
+      
+      do {
+         novaCarta(maoComputador);
+         pontuacaoComputador = atualizaPontuacao(maoComputador, pontuacaoComputador);
+
+         console.log("maoComputador: ");
+         console.log(maoComputador);
+         console.log("pontuacaoUsuario: " + pontuacaoUsuario);
+         console.log("pontuacaoComputador: " + pontuacaoComputador);
+      } while ((pontuacaoComputador < 21) && (pontuacaoComputador < pontuacaoUsuario));
+
+   }
+
+}
+
+function novaCarta(maoJogador) {
+   maoJogador.push(comprarCarta())
+
+   return maoJogador;
+}
+
+function atualizaPontuacao(maoJogador, pontuacao) {
+   let ultimaPosicao = Number(maoJogador.length) - 1;
+   pontuacao += maoJogador[ultimaPosicao].valor;
+
+   return pontuacao;
+}
+
+function mostrarCartaUsuario() {
+   textoCartas = "";
+   console.log(textoCartas)
+   for (let index = 0; index < maoUsuario.length; index++) {
+      textoCartas += String(maoUsuario[index].texto + " ");
+   }
+   console.log(textoCartas);
    return textoCartas
 }
 
-function novaCarta(jogador) {
-   jogador.push(comprarCarta())
-   atualizaPontuacao()
-   
-   return jogador;
+function mostrarCartaComputador() {
+   textoCartas = "";
+   console.log(textoCartas)
+   for (let index = 0; index < maoComputador.length; index++) {
+      textoCartas += String(maoComputador[index].texto + " ");
+   }
+   console.log(textoCartas);
+   return textoCartas
 }
 
-function atualizaPontuacao(){
-   let ultimaPosicao = Number(cartasUsuario.length) - 1;
-   pontuacaoUsuario += cartasUsuario[ultimaPosicao].valor;
-}
 
 
 
-
-// let comprarOutra = confirm(`Suas cartas são ${cartasUsuario[0].texto} e ${cartasUsuario[1].texto}. A carta revelada do computador é ${cartasComputador[0].texto}.` + "\n" + "Deseja comprar mais uma carta?");
+// let comprarOutra = confirm(`Suas cartas são ${maoUsuario[0].texto} e ${maoUsuario[1].texto}. A carta revelada do computador é ${maoComputador[0].texto}.` + "\n" + "Deseja comprar mais uma carta?");
 
 //  if (comprarOutra) {
-//     cartasUsuario.push(comprarCarta());
-//     pontuacaoUsuario = Number(pontuacaoUsuario + cartasUsuario[2].valor)
+//     maoUsuario.push(comprarCarta());
+//     pontuacaoUsuario = Number(pontuacaoUsuario + maoUsuario[2].valor)
 //     if (pontuacaoUsuario <= 21) {
-//        comprarOutra = confirm(`Suas cartas são ${cartasUsuario[0].texto}, ${cartasUsuario[1].texto} e  ${cartasUsuario[2].texto}. A carta revelada do computador é ${cartasComputador[0].texto}.` + "\n" + "Deseja comprar mais uma carta?");
+//        comprarOutra = confirm(`Suas cartas são ${maoUsuario[0].texto}, ${maoUsuario[1].texto} e  ${maoUsuario[2].texto}. A carta revelada do computador é ${maoComputador[0].texto}.` + "\n" + "Deseja comprar mais uma carta?");
 //     } else {
 //        alert(`Você perdeu! sua pontuação de ${pontuacaoUsuario} extrapolou 21.`)
 //     }
 
 //  }
 
-//  console.log(cartasUsuario)
+//  console.log(maoUsuario)
 
 
 
 
 
 //  function computadorNovaCarta() {
-//    cartasComputador.push(comprarCarta())
+//    maoComputador.push(comprarCarta())
 // }
