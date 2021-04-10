@@ -11,6 +11,8 @@
  * 
  */
 
+alert(`Bem-vindo(a) ao Blackjack do Rafa! Vamos começar!\n\nA rodada começa com você.\nSeu objetivo é atingir 21 pontos, ou o mais próximo disso.\n\nNas telas seguintes, clique em "OK" para prosseguir ou "Cancelar" para encerrar seu turno.`);
+
 let maoUsuario = [];
 let pontuacaoUsuario;
 
@@ -18,6 +20,8 @@ let maoComputador = [];
 let pontuacaoComputador;
 
 let verificaAA;
+let seguirComprando;
+let textoCartas = "";
 
 do {
    maoUsuario = [comprarCarta(), comprarCarta()];
@@ -29,43 +33,30 @@ do {
    verificaAA = Boolean((pontuacaoUsuario === 22) || (pontuacaoComputador === 22));
 } while (verificaAA);
 
-// console.log(maoUsuario);
-// console.log("pontuacaoUsuario: " + pontuacaoUsuario);
-// console.log("teste");
-
-let seguirComprando;
-let textoCartas = "";
 
 do {
    turnoUsuario();
-} while (seguirComprando && pontuacaoUsuario < 20); //Carta "A" vale 11 em naoMexer.js (menor valor de carta é 2)
-// SAIR AO !seguirComprando ou pontuacaoUsuario 20 ou +
+} while (seguirComprando && pontuacaoUsuario <= 19); //Carta "A" vale 11 em naoMexer.js (menor valor de carta é 2)
 
-console.log(maoUsuario);
-console.log("pontuacaoUsuario: " + pontuacaoUsuario);
-console.log("pontuacaoComputador: " + pontuacaoComputador);
+
 
 if (pontuacaoUsuario > 21) {
-   alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario} e ultrapassou 21.\nVocê perdeu.`);
+   alert(`Fim de jogo!\n\nSuas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario} e ultrapassou 21.\n\nVocê perdeu.`);
 } else {
    turnoComputador(); //pontuacaoUsuario <= 21
 
    if ((pontuacaoUsuario > pontuacaoComputador) || (pontuacaoComputador > 21)) {
-      alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\nVocê ganhou!`);
+      alert(`Fim de jogo!\n\nSuas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\n\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\n\nVocê ganhou!`);
    } else if ((pontuacaoUsuario < pontuacaoComputador) && (pontuacaoComputador <= 21)) {
-      alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\nO computador ganhou!`);
+      alert(`Fim de jogo!\n\nSuas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\n\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\n\nO computador ganhou!`);
    } else if (pontuacaoUsuario === pontuacaoComputador) {
-      alert(`Suas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\nO jogo terminou empatado!`);
+      alert(`Fim de jogo!\n\nSuas cartas são ${mostrarCartaUsuario()}.\nSua pontuação é ${pontuacaoUsuario}.\n\nAs cartas do computador são ${mostrarCartaComputador()}.\nA pontuação do computador é ${pontuacaoComputador}.\n\nO jogo terminou empatado!`);
    }
 }
 
-console.log(maoComputador);
-console.log("pontuacaoComputador: " + pontuacaoComputador);
 
-
-// TURNO USUÁRIO
+// FUNÇÕES
 function turnoUsuario() {
-   console.log("turnoUsuario");
    seguirComprando = confirm(`Suas cartas são ${mostrarCartaUsuario()} (${pontuacaoUsuario} pontos).\nA carta revelada do computador é ${maoComputador[0].texto}.\n\nDeseja comprar mais uma carta?`);
 
    if (seguirComprando) {
@@ -74,25 +65,14 @@ function turnoUsuario() {
    }
 }
 
-// TURNO COMPUTADOR
 function turnoComputador() {
-   console.log("turnoComputador");
-   //pontuacaoUsuario <= 21
-   //!seguirComprando
    if (pontuacaoComputador < pontuacaoUsuario) {
       do {
          novaCarta(maoComputador);
          pontuacaoComputador = atualizaPontuacao(maoComputador, pontuacaoComputador);
 
-         console.log("maoComputador: ");
-         console.log(maoComputador);
-         console.log("pontuacaoUsuario: " + pontuacaoUsuario);
-         console.log("pontuacaoComputador: " + pontuacaoComputador);
       } while ((pontuacaoComputador < 20) && (pontuacaoComputador < pontuacaoUsuario));
    }
-   //pontuacaoComputador >= 20
-   //pontuacaoComputador >= pontuacaoUsuario
-
 }
 
 function novaCarta(maoJogador) {
@@ -110,20 +90,18 @@ function atualizaPontuacao(maoJogador, pontuacao) {
 
 function mostrarCartaUsuario() {
    textoCartas = "";
-   // console.log(textoCartas)
    for (let index = 0; index < maoUsuario.length; index++) {
       textoCartas += String(maoUsuario[index].texto + " ");
    }
-   // console.log(textoCartas);
+
    return textoCartas
 }
 
 function mostrarCartaComputador() {
    textoCartas = "";
-   // console.log(textoCartas)
    for (let index = 0; index < maoComputador.length; index++) {
       textoCartas += String(maoComputador[index].texto + " ");
    }
-   // console.log(textoCartas);
+
    return textoCartas
 }
