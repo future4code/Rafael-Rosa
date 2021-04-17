@@ -13,8 +13,15 @@ function inverteArray(array) {
 //Exercício 2
 
 function retornaNumerosParesElevadosADois(array) {
-   // implemente sua lógica aqui
+   arrayDeParesAoQuadrado = [];
 
+   for (let index = 0; index < array.length; index++) {
+      if (array[index] % 2 === 0) {
+         arrayDeParesAoQuadrado.push(array[index] * array[index]);
+      }
+   }
+
+   return arrayDeParesAoQuadrado
 }
 
 //Exercício 3
