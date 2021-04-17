@@ -13,7 +13,7 @@ function inverteArray(array) {
 //Exercício 2
 
 function retornaNumerosParesElevadosADois(array) {
-   arrayDeParesAoQuadrado = [];
+   let arrayDeParesAoQuadrado = [];
 
    for (let index = 0; index < array.length; index++) {
       if (array[index] % 2 === 0) {
@@ -21,7 +21,7 @@ function retornaNumerosParesElevadosADois(array) {
       }
    }
 
-   return arrayDeParesAoQuadrado
+   return arrayDeParesAoQuadrado;
 }
 
 //Exercício 3
