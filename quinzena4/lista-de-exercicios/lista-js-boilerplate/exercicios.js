@@ -27,7 +27,6 @@ function retornaNumerosParesElevadosADois(array) {
 //Exercício 3
 
 function retornaNumerosPares(array) {
-   // implemente sua lógica aqui
    let arrayDePares = [];
 
    for (let index = 0; index < array.length; index++) {
@@ -42,7 +41,6 @@ function retornaNumerosPares(array) {
 //Exercício 4
 
 function retornaMaiorNumero(array) {
-   // implemente sua lógica aqui
    let maiorNumero = -Infinity;
 
    for (let numero of array){
@@ -57,7 +55,9 @@ function retornaMaiorNumero(array) {
 //Exercício 5
 
 function retornaQuantidadeElementos(array) {
-   // implemente sua lógica aqui
+   
+   return array.length;
+
 }
 
 //Exercício 6
