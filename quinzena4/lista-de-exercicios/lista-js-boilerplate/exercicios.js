@@ -1,18 +1,25 @@
 //Exercício 1
 
 function inverteArray(array) {
-  // implemente sua lógica aqui
+   let arrayInvertido = [];
+
+   for (let index = array.length - 1; index >= 0; index--) {
+      arrayInvertido.push(array[index]);
+   }
+
+   return arrayInvertido;
 }
 
 //Exercício 2
 
-function retornaNumerosParesElevadosADois (array) {
+function retornaNumerosParesElevadosADois(array) {
    // implemente sua lógica aqui
+
 }
 
 //Exercício 3
 
-function retornaNumerosPares (array) {
+function retornaNumerosPares(array) {
    // implemente sua lógica aqui
 }
 
@@ -24,7 +31,7 @@ function retornaMaiorNumero(array) {
 
 //Exercício 5
 
-function retornaQuantidadeElementos (array) {
+function retornaQuantidadeElementos(array) {
    // implemente sua lógica aqui
 }
 
@@ -43,7 +50,7 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
 }
 
 // Exercício 9
@@ -91,10 +98,10 @@ function anonimizaPessoa(pessoa) {
 // Exercício 16
 
 const arrayDePessoas = [
-  { nome: "Pedro", idade: 20 },
-  { nome: "João", idade: 10 },
-  { nome: "Paula", idade: 12 },
-  { nome: "Artur", idade: 89 } 
+   { nome: "Pedro", idade: 20 },
+   { nome: "João", idade: 10 },
+   { nome: "Paula", idade: 12 },
+   { nome: "Artur", idade: 89 }
 ]
 
 // Exercício 16, letra A
@@ -118,7 +125,7 @@ function multiplicaArrayPor2(array) {
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
 }
 
 // Exercício 17, letra C
@@ -130,12 +137,12 @@ function verificaParidade(array) {
 // Exercício 18
 
 const pessoas = [
-  { nome: "Paula", idade: 12, altura: 1.8},
-  { nome: "João", idade: 20, altura: 1.3},
-  { nome: "Pedro", idade: 15, altura: 1.9},
-  { nome: "Luciano", idade: 22, altura: 1.8},
-  { nome: "Artur", idade: 10, altura: 1.2},
-  { nome: "Soter", idade: 70, altura: 1.9}
+   { nome: "Paula", idade: 12, altura: 1.8 },
+   { nome: "João", idade: 20, altura: 1.3 },
+   { nome: "Pedro", idade: 15, altura: 1.9 },
+   { nome: "Luciano", idade: 22, altura: 1.8 },
+   { nome: "Artur", idade: 10, altura: 1.2 },
+   { nome: "Soter", idade: 70, altura: 1.9 }
 ]
 
 //Exercício 18, letra A
@@ -154,27 +161,27 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 //Exercício 19
 
 const consultas = [
-  { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-  { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-  { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-  { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
-  ]
+   { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+   { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+   { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+   { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
 
 function retornaEmailConsulta(consultas) {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
 }
 
 //Exercício 20
 
 const contas = [
-  { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
-  { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
-  { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
-  { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
-  { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
-  { cliente: "Soter", saldoTotal: 1200, compras: [] }
+   { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+   { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+   { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+   { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+   { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+   { cliente: "Soter", saldoTotal: 1200, compras: [] }
 ]
 
 function atualizaSaldo() {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
 }
