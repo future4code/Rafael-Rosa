@@ -43,8 +43,8 @@ function retornaNumerosPares(array) {
 function retornaMaiorNumero(array) {
    let maiorNumero = -Infinity;
 
-   for (let numero of array){
-      if (numero > maiorNumero){
+   for (let numero of array) {
+      if (numero > maiorNumero) {
          maiorNumero = numero;
       }
    }
@@ -55,7 +55,7 @@ function retornaMaiorNumero(array) {
 //Exercício 5
 
 function retornaQuantidadeElementos(array) {
-   
+
    return array.length;
 
 }
@@ -63,7 +63,45 @@ function retornaQuantidadeElementos(array) {
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // implemente sua lógica aqui
+   const booleano1 = true;
+   const booleano2 = false;
+   const booleano3 = !booleano2;
+   const booleano4 = !booleano3;
+
+   const arrayDeRespostas = [];
+
+   if (booleano1 && booleano2 && !booleano4){
+      arrayDeRespostas.push(true);
+   }else {
+      arrayDeRespostas.push(false);
+   };
+   
+   if ((booleano1 && booleano2) || !booleano3){
+      arrayDeRespostas.push(true);
+   }else {
+      arrayDeRespostas.push(false);
+   }
+   
+   if ((booleano2 || booleano3) && (booleano4 || booleano1)){
+      arrayDeRespostas.push(true);
+   }else {
+      arrayDeRespostas.push(false);
+   }
+   
+   if (!(booleano2 && booleano3) || !(booleano1 && booleano3)){
+      arrayDeRespostas.push(true);
+   }else {
+      arrayDeRespostas.push(false);
+   }
+   
+   if (!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)){
+      arrayDeRespostas.push(true);
+   }else {
+      arrayDeRespostas.push(false);
+   }
+   
+   return arrayDeRespostas;
+
 }
 
 //Exercício 7
