@@ -12,13 +12,13 @@
 <body>
     <section id="formulario">
         <label for="titulo-post">Título:</label>
-        <input type="text" id="titulo-post">
+        <input type="text" id="titulo-post" maxlength="100">
 
         <label for="autor-post">Autor:</label>
         <input type="text" id="autor-post">
 
         <label for="conteudo-post">Conteúdo:</label>
-        <textarea id="conteudo-post" cols="30" rows="10"></textarea>
+        <textarea id="conteudo-post" cols="30" rows="10" maxlength="500"></textarea>
         
         <button onclick="incluirPost()">Criar Post</button>
     </section>
