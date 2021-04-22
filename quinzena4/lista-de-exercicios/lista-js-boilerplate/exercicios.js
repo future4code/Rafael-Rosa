@@ -125,7 +125,19 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-   // implemente sua lógica aqui
+   const triangulo = {
+      ladoA: a,
+      ladoB: b,
+      ladoC: c
+   }
+
+   if ((triangulo.ladoA === triangulo.ladoB) && (triangulo.ladoB === triangulo.ladoC)){
+      return "Equilátero";
+   } else if ((triangulo.ladoA === triangulo.ladoB) || (triangulo.ladoA === triangulo.ladoC) || (triangulo.ladoB === triangulo.ladoC)){
+      return "Isósceles";
+   } else {
+      return "Escaleno";
+   }
 }
 
 // Exercício 9
