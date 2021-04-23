@@ -27,11 +27,14 @@ const arrayCompare = (arr1, arr2) => {
   }
   for(let i = 0; i < arr1.length; i++) {
     if (isObject(arr1[i])) {
-      return objectCompare(arr1[i], arr2[i])
-    } else if (arr1[i] !== arr2[i]) {
+      if (!objectCompare(arr1[i], arr2[i])) {
         return false
       }
+    } else if (arr1[i] !== arr2[i]) {
+      return false
     }
+  }
+
   return true
 }
 
@@ -399,23 +402,43 @@ testEx18B()
 
 // Teste exercício 19
 
-function testEx19() {
+// Teste exercício 19 - A
 
+function testEx19A() {
   const output = [
-    "Olá, Sr. João. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia 01/10/2019. Por favor, acuse o recebimento deste-email.",
-    "Olá, Sr. Pedro. Infelizmente sua consulta marcada para o dia 02/10/2019 foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.",
-    "Olá, Sra. Paula. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia 03/11/2019. Por favor, acuse o recebimento deste-email.",
-    "Olá, Sra. Márcia. Infelizmente sua consulta marcada para o dia 04/11/2019 foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la."
-    ];
+    { nome: "João", dataDaConsulta: "01/10/2021" },
+    { nome: "Márcia", dataDaConsulta: "04/05/2021" },
+    { nome: "Paula", dataDaConsulta: "03/11/2021" },
+    { nome: "Pedro", dataDaConsulta: "02/07/2021" }
+  ]
 
-  if(arrayCompare(retornaEmailConsulta(), output)) {
-    console.log('%c Você acertou a questão número 19', 'color: #00FF00')
+  if(arrayCompare(ordenaPorNome(), output)) {
+    console.log('%c Você acertou a questão número 19A', 'color: #00FF00')
   } else {
-    console.log('%c Você errou a questão número 19', 'color: #CD0000')
+    console.log('%c Você errou a questão número 19A', 'color: #CD0000')
   }
 }
 
-testEx19();
+testEx19A();
+
+// Teste exercício 19 - B
+
+function testEx19B() {
+  const output = [
+    { nome: "Márcia", dataDaConsulta: "04/05/2021" },
+    { nome: "Pedro", dataDaConsulta: "02/07/2021" },
+    { nome: "João",  dataDaConsulta: "01/10/2021" },
+    { nome: "Paula", dataDaConsulta: "03/11/2021" }
+  ];
+
+  if(arrayCompare(ordenaPorData(), output)) {
+    console.log('%c Você acertou a questão número 19B', 'color: #00FF00')
+  } else {
+    console.log('%c Você errou a questão número 19B', 'color: #CD0000')
+  }
+}
+
+testEx19B();
 
 // Teste exercício 20
 

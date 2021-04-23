@@ -144,6 +144,11 @@ function checaTriangulo(a, b, c) {
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
+   // i. qual é o maior,
+   // ii. determine se o maior é divisível pelo menor (use o operador `%`) 
+   // iii. determine a diferença entre eles (o resultado deve ser um número positivo sempre)
+
+
 }
 
 // Exercício 10
