@@ -170,6 +170,29 @@ function comparaDoisNumeros(num1, num2) {
 
 function segundoMaiorEMenor(array) {
    // implemente sua lógica aqui
+   let menorNumero = Infinity
+   let segundoMenor = Infinity + 1
+   let maiorNumero = -Infinity
+   let segundoMaior = -Infinity - 1
+
+   for (numero of array){
+      if (numero < menorNumero){
+         segundoMenor = menorNumero
+         menorNumero = numero
+      } else if ((numero > menorNumero) && (numero < segundoMenor)){
+         segundoMenor = numero
+      }
+
+      if (numero > maiorNumero){
+         segundoMaior = maiorNumero
+         maiorNumero = numero
+      } else if ((numero < maiorNumero) && (numero > segundoMaior)){
+         segundoMaior = numero
+      }
+
+   }
+   
+   return [segundoMaior, segundoMenor]
 }
 
 //Exercício 11
