@@ -341,6 +341,13 @@ function menoresDe18(arrayDePessoas) {
 
 function multiplicaArrayPor2(array) {
    // implemente sua lógica aqui
+
+   valoresDuplicados = array.map((item) => {
+      return item * 2
+   })
+
+   return valoresDuplicados
+
 }
 
 // Exercício 17, letra B
