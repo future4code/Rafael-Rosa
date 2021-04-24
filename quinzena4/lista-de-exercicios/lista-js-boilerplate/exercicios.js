@@ -246,7 +246,7 @@ function ordenaArray(array) {
 
 function filmeFavorito() {
    // implemente sua lógica aqui
- 
+
    const filme = {
       nome: 'O Diabo Veste Prada',
       ano: 2006,
@@ -271,6 +271,16 @@ function imprimeChamada() {
 
 function criaRetangulo(lado1, lado2) {
    // implemente sua lógica aqui
+
+   const medidasRetangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2 * (lado1 + lado2),
+      area: (lado1 * lado2)
+   }
+
+   return medidasRetangulo
+
 }
 
 // Exercício 15
