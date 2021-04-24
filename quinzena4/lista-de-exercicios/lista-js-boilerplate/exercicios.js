@@ -342,7 +342,7 @@ function menoresDe18(arrayDePessoas) {
 function multiplicaArrayPor2(array) {
    // implemente sua lógica aqui
 
-   valoresDuplicados = array.map((item) => {
+   const valoresDuplicados = array.map((item) => {
       return item * 2
    })
 
@@ -354,6 +354,13 @@ function multiplicaArrayPor2(array) {
 
 function multiplicaArrayPor2S(array) {
    // implemente sua lógica aqui
+
+   const valoresDuplicadosString = array.map((item) => {
+      return String(item * 2)
+   })
+
+   return valoresDuplicadosString
+
 }
 
 // Exercício 17, letra C
