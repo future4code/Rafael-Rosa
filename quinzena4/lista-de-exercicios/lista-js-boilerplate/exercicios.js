@@ -367,6 +367,16 @@ function multiplicaArrayPor2S(array) {
 
 function verificaParidade(array) {
    // implemente sua lógica aqui
+
+   const paresEImpares = array.map((item) => {
+      if (item % 2 === 0) {
+         return String(`${item} é par`)
+      }
+      return String(`${item} é ímpar`)
+   })
+
+   return paresEImpares
+
 }
 
 // Exercício 18
