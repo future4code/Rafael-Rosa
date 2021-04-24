@@ -144,11 +144,26 @@ function checaTriangulo(a, b, c) {
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
-   // i. qual é o maior,
-   // ii. determine se o maior é divisível pelo menor (use o operador `%`) 
-   // iii. determine a diferença entre eles (o resultado deve ser um número positivo sempre)
+   const objeto = {
+      maiorNumero: 0,
+      maiorDivisivelporMenor: false,
+      diferenca: 0
+   }
 
+   if (num1 > num2){
+      objeto.maiorNumero = num1
+      objeto.diferenca = num1 - num2
 
+      num1 % num2 === 0 ? (objeto.maiorDivisivelporMenor = true) : (objeto.maiorDivisivelporMenor = false)
+
+   }else if (num2 > num1){
+      objeto.maiorNumero = num2
+      objeto.diferenca = (num2 - num1)
+
+      num2 % num1 === 0 ? (objeto.maiorDivisivelporMenor = true) : (objeto.maiorDivisivelporMenor = false)
+   }
+
+   return objeto
 }
 
 // Exercício 10
