@@ -70,36 +70,36 @@ function retornaExpressoesBooleanas() {
 
    const arrayDeRespostas = [];
 
-   if (booleano1 && booleano2 && !booleano4){
+   if (booleano1 && booleano2 && !booleano4) {
       arrayDeRespostas.push(true);
-   }else {
+   } else {
       arrayDeRespostas.push(false);
    };
-   
-   if ((booleano1 && booleano2) || !booleano3){
+
+   if ((booleano1 && booleano2) || !booleano3) {
       arrayDeRespostas.push(true);
-   }else {
+   } else {
       arrayDeRespostas.push(false);
    }
-   
-   if ((booleano2 || booleano3) && (booleano4 || booleano1)){
+
+   if ((booleano2 || booleano3) && (booleano4 || booleano1)) {
       arrayDeRespostas.push(true);
-   }else {
+   } else {
       arrayDeRespostas.push(false);
    }
-   
-   if (!(booleano2 && booleano3) || !(booleano1 && booleano3)){
+
+   if (!(booleano2 && booleano3) || !(booleano1 && booleano3)) {
       arrayDeRespostas.push(true);
-   }else {
+   } else {
       arrayDeRespostas.push(false);
    }
-   
-   if (!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)){
+
+   if (!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)) {
       arrayDeRespostas.push(true);
-   }else {
+   } else {
       arrayDeRespostas.push(false);
    }
-   
+
    return arrayDeRespostas;
 
 }
@@ -110,13 +110,13 @@ function retornaNNumerosPares(n) {
    let arrayDePares = [];
    let contador = 0;
 
-   while (arrayDePares.length < n){
-         if (contador % 2 === 0){
-            arrayDePares.push(contador);
-            contador++;
-         }else {
-            contador++;
-         }
+   while (arrayDePares.length < n) {
+      if (contador % 2 === 0) {
+         arrayDePares.push(contador);
+         contador++;
+      } else {
+         contador++;
+      }
    }
 
    return arrayDePares;
@@ -131,9 +131,9 @@ function checaTriangulo(a, b, c) {
       ladoC: c
    }
 
-   if ((triangulo.ladoA === triangulo.ladoB) && (triangulo.ladoB === triangulo.ladoC)){
+   if ((triangulo.ladoA === triangulo.ladoB) && (triangulo.ladoB === triangulo.ladoC)) {
       return "Equilátero";
-   } else if ((triangulo.ladoA === triangulo.ladoB) || (triangulo.ladoA === triangulo.ladoC) || (triangulo.ladoB === triangulo.ladoC)){
+   } else if ((triangulo.ladoA === triangulo.ladoB) || (triangulo.ladoA === triangulo.ladoC) || (triangulo.ladoB === triangulo.ladoC)) {
       return "Isósceles";
    } else {
       return "Escaleno";
@@ -150,13 +150,13 @@ function comparaDoisNumeros(num1, num2) {
       diferenca: 0
    }
 
-   if (num1 > num2){
+   if (num1 > num2) {
       objeto.maiorNumero = num1
       objeto.diferenca = num1 - num2
 
       num1 % num2 === 0 ? (objeto.maiorDivisivelporMenor = true) : (objeto.maiorDivisivelporMenor = false)
 
-   }else if (num2 > num1){
+   } else if (num2 > num1) {
       objeto.maiorNumero = num2
       objeto.diferenca = (num2 - num1)
 
@@ -175,23 +175,23 @@ function segundoMaiorEMenor(array) {
    let maiorNumero = -Infinity
    let segundoMaior = -Infinity - 1
 
-   for (numero of array){
-      if (numero < menorNumero){
+   for (numero of array) {
+      if (numero < menorNumero) {
          segundoMenor = menorNumero
          menorNumero = numero
-      } else if ((numero > menorNumero) && (numero < segundoMenor)){
+      } else if ((numero > menorNumero) && (numero < segundoMenor)) {
          segundoMenor = numero
       }
 
-      if (numero > maiorNumero){
+      if (numero > maiorNumero) {
          segundoMaior = maiorNumero
          maiorNumero = numero
-      } else if ((numero < maiorNumero) && (numero > segundoMaior)){
+      } else if ((numero < maiorNumero) && (numero > segundoMaior)) {
          segundoMaior = numero
       }
 
    }
-   
+
    return [segundoMaior, segundoMenor]
 }
 
@@ -199,6 +199,48 @@ function segundoMaiorEMenor(array) {
 
 function ordenaArray(array) {
    // implemente sua lógica aqui
+   // Escreva uma função que recebe um array e retorne um array com eles em ordem crescente.
+   
+   
+   // console.log(array)
+   // novoArray = []
+   // let ehMenor = Infinity
+   // let indiceMenor
+
+   // while (array.length !== novoArray.length) {
+
+   //    if (novoArray.length === 0) {
+   //       for (let index = 0; index < array.length; index++) {
+   //          if (array[index] < ehMenor) {
+   //             ehMenor = array[index]
+   //             indiceMenor = index
+   //          }
+   //       }
+   //       novoArray.push(ehMenor)
+   //       console.log("ehMenor1 " + ehMenor);
+   //    } else {
+
+   //       ehMenor = Infinity
+   //       for (index = 0; index < array.length; index++) {
+
+   //          if ((array[index] > novoArray[novoArray.length - 1]) && (array[index] < ehMenor)) {
+   //             ehMenor = array[index]
+   //             indiceMenor = index
+   //          } else {
+   //             console.log(`else: i: ${index} - num: ${array[index]} - iMenor: ${indiceMenor}`);
+   //          }
+   //       }
+   //       novoArray.push(ehMenor)
+   //       console.log(`ehMenor${novoArray.length}  + ${ehMenor}`);
+
+   //    }
+
+   // }
+
+   // console.log("-------\nehMenor" + ehMenor);
+   // console.log(novoArray)
+   // console.log(novoArray.length - 1)
+
 }
 
 // Exercício 12
