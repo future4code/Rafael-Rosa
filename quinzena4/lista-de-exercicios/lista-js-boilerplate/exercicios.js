@@ -200,8 +200,7 @@ function segundoMaiorEMenor(array) {
 function ordenaArray(array) {
    // implemente sua lógica aqui
    // Escreva uma função que recebe um array e retorne um array com eles em ordem crescente.
-   
-   
+      
    // console.log(array)
    // novoArray = []
    // let ehMenor = Infinity
@@ -247,6 +246,8 @@ function ordenaArray(array) {
 
 function filmeFavorito() {
    // implemente sua lógica aqui
+
+
 }
 
 // Exercício 13
