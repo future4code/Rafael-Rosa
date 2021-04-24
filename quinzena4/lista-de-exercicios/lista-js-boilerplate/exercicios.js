@@ -311,12 +311,23 @@ const arrayDePessoas = [
 
 function maioresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+
+   const maioresDeVinte = arrayDePessoas.filter((pessoa) => {
+      if (pessoa.idade >= 20){
+         return pessoa
+      }
+   })
+   
+   return maioresDeVinte
+
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+   // b) Faça uma função que retorne um **novo array** só com as crianças/adolescentes (pessoas com idade inferior a 20)
+
 }
 
 // Exercício 17, letra A
