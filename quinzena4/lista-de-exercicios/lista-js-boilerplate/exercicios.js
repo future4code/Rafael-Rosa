@@ -199,41 +199,67 @@ function segundoMaiorEMenor(array) {
 
 function ordenaArray(array) {
    // implemente sua lógica aqui
-   // Escreva uma função que recebe um array e retorne um array com eles em ordem crescente.
+   // Insertion Sort - Pesquisado e adaptado para o exercício
 
-   // console.log(array)
-   // novoArray = []
+   let indice
+   let indice2
+   let indiceMenorNumero
+   let menorNumero
+
+   for (indice = 0; indice < array.length; indice++) {
+
+      indiceMenorNumero = indice;
+
+      for (indice2 = indice + 1; indice2 <= array.length - 1; indice2++) {
+
+         if (array[indice2] < array[indiceMenorNumero]) {
+            indiceMenorNumero = indice2;
+         }
+      }
+
+      menorNumero = array[indiceMenorNumero];
+      array[indiceMenorNumero] = array[indice];
+      array[indice] = menorNumero;
+   }
+
+   return array
+
+
+// Outra lógica tentada - Não funciona com o número duplicado no array.
+
    // let ehMenor = Infinity
    // let indiceMenor
+   // let contarVolta = 0
 
    // while (array.length !== novoArray.length) {
+   //    contarVolta++
+   //    console.log(`volta ${contarVolta}`);
 
-   //    if (novoArray.length === 0) {
-   //       for (let index = 0; index < array.length; index++) {
-   //          if (array[index] < ehMenor) {
-   //             ehMenor = array[index]
-   //             indiceMenor = index
-   //          }
+   // if (novoArray.length === 0) {
+   //    for (let index = 0; index < array.length; index++) {
+   //       if (array[index] < ehMenor) {
+   //          ehMenor = array[index]
+   //          indiceMenor = index
    //       }
-   //       novoArray.push(ehMenor)
-   //       console.log("ehMenor1 " + ehMenor);
-   //    } else {
-
-   //       ehMenor = Infinity
-   //       for (index = 0; index < array.length; index++) {
-
-   //          if ((array[index] > novoArray[novoArray.length - 1]) && (array[index] < ehMenor)) {
-   //             ehMenor = array[index]
-   //             indiceMenor = index
-   //          } else {
-   //             console.log(`else: i: ${index} - num: ${array[index]} - iMenor: ${indiceMenor}`);
-   //          }
-   //       }
-   //       novoArray.push(ehMenor)
-   //       console.log(`ehMenor${novoArray.length}  + ${ehMenor}`);
-
    //    }
+   //    novoArray.push(ehMenor)
+   //    // console.log("ehMenor1 " + ehMenor);
+   // } else {
+   //    ehMenor = Infinity
+   //    for (index = 0; index < array.length; index++) {
 
+   //       if ((array[index] > novoArray[novoArray.length - 1]) && (array[index] <= ehMenor)) {
+   //          ehMenor = array[index]
+   //          indiceMenor = index
+   //          // console.log(`if: ehMenor: ${ehMenor} i: ${index} - num: ${array[index]} - iMenor: ${indiceMenor}`);
+   //       } 
+   //       // else {
+   //       //    console.log(`else: i: ${index} - num: ${array[index]} - iMenor: ${indiceMenor}`);
+   //       // }
+   //    }
+   //    novoArray.push(ehMenor)
+   //    // console.log(`ehMenor${novoArray.length}  + ${ehMenor}`);
+   // }
    // }
 
    // console.log("-------\nehMenor" + ehMenor);
@@ -396,16 +422,16 @@ function retornaPessoasAutorizadas() {
    // implemente sua lógica aqui
 
    const pessoas = [
-      { nome: "Paula", idade: 12, altura: 1.8},
-      { nome: "João", idade: 20, altura: 1.3},
-      { nome: "Pedro", idade: 15, altura: 1.9},
-      { nome: "Luciano", idade: 22, altura: 1.8},
-      { nome: "Artur", idade: 10, altura: 1.2},
-      { nome: "Soter", idade: 70, altura: 1.9}
+      { nome: "Paula", idade: 12, altura: 1.8 },
+      { nome: "João", idade: 20, altura: 1.3 },
+      { nome: "Pedro", idade: 15, altura: 1.9 },
+      { nome: "Luciano", idade: 22, altura: 1.8 },
+      { nome: "Artur", idade: 10, altura: 1.2 },
+      { nome: "Soter", idade: 70, altura: 1.9 }
    ]
 
    const pessoasAutorizadas = pessoas.filter((pessoa) => {
-      if ((pessoa.idade > 14) && (pessoa.idade < 60) && (pessoa.altura > 1.5)){
+      if ((pessoa.idade > 14) && (pessoa.idade < 60) && (pessoa.altura > 1.5)) {
          return pessoa
       }
    })
@@ -421,16 +447,16 @@ function retornaPessoasNaoAutorizadas() {
    // implemente sua lógica aqui
 
    const pessoas = [
-      { nome: "Paula", idade: 12, altura: 1.8},
-      { nome: "João", idade: 20, altura: 1.3},
-      { nome: "Pedro", idade: 15, altura: 1.9},
-      { nome: "Luciano", idade: 22, altura: 1.8},
-      { nome: "Artur", idade: 10, altura: 1.2},
-      { nome: "Soter", idade: 70, altura: 1.9}
+      { nome: "Paula", idade: 12, altura: 1.8 },
+      { nome: "João", idade: 20, altura: 1.3 },
+      { nome: "Pedro", idade: 15, altura: 1.9 },
+      { nome: "Luciano", idade: 22, altura: 1.8 },
+      { nome: "Artur", idade: 10, altura: 1.2 },
+      { nome: "Soter", idade: 70, altura: 1.9 }
    ]
 
    const pessoasNaoAutorizadas = pessoas.filter((pessoa) => {
-      if ((pessoa.idade <= 14) || (pessoa.idade >= 60) || (pessoa.altura <= 1.5)){
+      if ((pessoa.idade <= 14) || (pessoa.idade >= 60) || (pessoa.altura <= 1.5)) {
          return pessoa
       }
    })
@@ -445,17 +471,17 @@ const consultas = [
    { nome: "João", dataDaConsulta: "01/10/2021" },
    { nome: "Pedro", dataDaConsulta: "02/07/2021" },
    { nome: "Paula", dataDaConsulta: "03/11/2021" },
-   { nome: "Márcia",  dataDaConsulta: "04/05/2021" }
+   { nome: "Márcia", dataDaConsulta: "04/05/2021" }
 ]
 
 function ordenaPorNome() { //Estava dando erro por causa do nome da função
    // implemente sua lógica aqui
 
    agendaConsultas = consultas.sort((pessoaA, pessoaB) => {
-      if (pessoaA.nome > pessoaB.nome){
+      if (pessoaA.nome > pessoaB.nome) {
          return 1
       }
-      if (pessoaA.nome < pessoaB.nome){
+      if (pessoaA.nome < pessoaB.nome) {
          return -1
       }
       return 0
@@ -488,15 +514,15 @@ function atualizaSaldo() {
    let debitos = 0
 
    contas.forEach((usuario) => {
-      if (usuario.compras.length > 0){
-         for (despesaIndividual of usuario.compras){
+      if (usuario.compras.length > 0) {
+         for (despesaIndividual of usuario.compras) {
             debitos += despesaIndividual
          }
          usuario.saldoTotal -= debitos
          debitos = 0
       }
    })
-   
+
    return contas
 
 }
