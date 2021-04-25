@@ -485,6 +485,18 @@ const contas = [
 
 function atualizaSaldo() {
    // implemente sua lógica aqui
+   let debitos = 0
 
+   contas.forEach((usuario) => {
+      if (usuario.compras.length > 0){
+         for (despesaIndividual of usuario.compras){
+            debitos += despesaIndividual
+         }
+         usuario.saldoTotal -= debitos
+         debitos = 0
+      }
+   })
+   
+   return contas
 
 }
