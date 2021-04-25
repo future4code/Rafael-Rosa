@@ -143,7 +143,6 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
    const objeto = {
       maiorNumero: 0,
       maiorDivisivelporMenor: false,
@@ -169,7 +168,6 @@ function comparaDoisNumeros(num1, num2) {
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
    let menorNumero = Infinity
    let segundoMenor = Infinity + 1
    let maiorNumero = -Infinity
@@ -198,9 +196,7 @@ function segundoMaiorEMenor(array) {
 //Exercício 11
 
 function ordenaArray(array) {
-   // implemente sua lógica aqui
    // Insertion Sort - Pesquisado e adaptado para o exercício
-
    let indice
    let indice2
    let indiceMenorNumero
@@ -210,7 +206,7 @@ function ordenaArray(array) {
 
       indiceMenorNumero = indice;
 
-      for (indice2 = indice + 1; indice2 <= array.length - 1; indice2++) {
+      for (indice2 = indice + 1; indice2 < array.length; indice2++) {
 
          if (array[indice2] < array[indiceMenorNumero]) {
             indiceMenorNumero = indice2;
@@ -271,8 +267,6 @@ function ordenaArray(array) {
 // Exercício 12
 
 function filmeFavorito() {
-   // implemente sua lógica aqui
-
    const filme = {
       nome: 'O Diabo Veste Prada',
       ano: 2006,
@@ -287,7 +281,6 @@ function filmeFavorito() {
 // Exercício 13
 
 function imprimeChamada() {
-   // implemente sua lógica aqui
    const filmeFavoritoAstrodev = filmeFavorito()
 
    return `Venha assistir ao filme ${filmeFavoritoAstrodev.nome}, de ${filmeFavoritoAstrodev.ano}, dirigido por ${filmeFavoritoAstrodev.diretor} e estrelado por ${filmeFavoritoAstrodev.atores[0]}, ${filmeFavoritoAstrodev.atores[1]}, ${filmeFavoritoAstrodev.atores[2]}, ${filmeFavoritoAstrodev.atores[3]}.`
@@ -296,8 +289,6 @@ function imprimeChamada() {
 // Exercício 14
 
 function criaRetangulo(lado1, lado2) {
-   // implemente sua lógica aqui
-
    const medidasRetangulo = {
       largura: lado1,
       altura: lado2,
@@ -312,8 +303,6 @@ function criaRetangulo(lado1, lado2) {
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
-   // implemente sua lógica aqui
-
    const novaPessoa = {
       ...pessoa
    }
@@ -336,8 +325,6 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
-
    const maioresDeVinte = arrayDePessoas.filter((pessoa) => {
       if (pessoa.idade >= 20) {
          return pessoa
@@ -351,8 +338,6 @@ function maioresDe18(arrayDePessoas) {
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
-
    const menoresDeVinte = arrayDePessoas.filter((pessoa) => {
       if (pessoa.idade < 20) {
          return pessoa
@@ -366,8 +351,6 @@ function menoresDe18(arrayDePessoas) {
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
-
    const valoresDuplicados = array.map((item) => {
       return item * 2
    })
@@ -379,8 +362,6 @@ function multiplicaArrayPor2(array) {
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-   // implemente sua lógica aqui
-
    const valoresDuplicadosString = array.map((item) => {
       return String(item * 2)
    })
@@ -392,8 +373,6 @@ function multiplicaArrayPor2S(array) {
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   // implemente sua lógica aqui
-
    const paresEImpares = array.map((item) => {
       if (item % 2 === 0) {
          return String(`${item} é par`)
@@ -419,8 +398,6 @@ const pessoas = [
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
-   // implemente sua lógica aqui
-
    const pessoas = [
       { nome: "Paula", idade: 12, altura: 1.8 },
       { nome: "João", idade: 20, altura: 1.3 },
@@ -444,8 +421,6 @@ function retornaPessoasAutorizadas() {
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
-   // implemente sua lógica aqui
-
    const pessoas = [
       { nome: "Paula", idade: 12, altura: 1.8 },
       { nome: "João", idade: 20, altura: 1.3 },
@@ -475,8 +450,6 @@ const consultas = [
 ]
 
 function ordenaPorNome() { //Estava dando erro por causa do nome da função
-   // implemente sua lógica aqui
-
    agendaConsultas = consultas.sort((pessoaA, pessoaB) => {
       if (pessoaA.nome > pessoaB.nome) {
          return 1
@@ -492,10 +465,34 @@ function ordenaPorNome() { //Estava dando erro por causa do nome da função
 
 }
 
-function ordenaPorData() { //Estava dando erro. Adicionei essa função
-   // implemente sua lógica aqui
+function formatarDataMMDDYYYY(data) {
+   
+   arrayDiaMesAno = data.split('/')
+   arrayMesDiaAno = [arrayDiaMesAno[1], arrayDiaMesAno[0], arrayDiaMesAno[2],]
 
-   // A) A sua primeira tarefa é criar uma função que receba o array consultas como parâmetro e retorne um array de consultas ordenado pelos nomes dos pacientes (em ordem alfabética)
+   return arrayMesDiaAno
+}
+
+function ordenaPorData() { //Estava dando erro porque dizia que a função não existia. Adicionei essa função
+   ordenaConsultas = consultas.sort((dataA, dataB) => {
+
+      const arrayData1 = formatarDataMMDDYYYY(dataA.dataDaConsulta)
+      const arrayData2 = formatarDataMMDDYYYY(dataB.dataDaConsulta)
+
+      const dataFormatada1 = new Date(arrayData1)
+      const dataFormatada2 = new Date(arrayData2)
+
+      if (dataFormatada1 > dataFormatada2) {
+         return 1
+      }
+      if (dataFormatada1 < dataFormatada2) {
+         return -1
+      }
+      return 0
+   })
+
+   return ordenaConsultas
+
 }
 
 //Exercício 20
@@ -510,7 +507,6 @@ const contas = [
 ]
 
 function atualizaSaldo() {
-   // implemente sua lógica aqui
    let debitos = 0
 
    contas.forEach((usuario) => {
