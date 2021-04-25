@@ -392,10 +392,10 @@ const pessoas = [
 
 //Exercício 18, letra A
 
-function retornaPessoasAutorizadas(pessoas) {
+function retornaPessoasAutorizadas() {
    // implemente sua lógica aqui
 
-   pessoas = [
+   const pessoas = [
       { nome: "Paula", idade: 12, altura: 1.8},
       { nome: "João", idade: 20, altura: 1.3},
       { nome: "Pedro", idade: 15, altura: 1.9},
@@ -417,10 +417,10 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // Exercício 18, letra B
 
-function retornaPessoasNaoAutorizadas(pessoas) {
+function retornaPessoasNaoAutorizadas() {
    // implemente sua lógica aqui
 
-   pessoas = [
+   const pessoas = [
       { nome: "Paula", idade: 12, altura: 1.8},
       { nome: "João", idade: 20, altura: 1.3},
       { nome: "Pedro", idade: 15, altura: 1.9},
@@ -442,14 +442,34 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 //Exercício 19
 
 const consultas = [
-   { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-   { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-   { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-   { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+   { nome: "João", dataDaConsulta: "01/10/2021" },
+   { nome: "Pedro", dataDaConsulta: "02/07/2021" },
+   { nome: "Paula", dataDaConsulta: "03/11/2021" },
+   { nome: "Márcia",  dataDaConsulta: "04/05/2021" }
 ]
 
-function retornaEmailConsulta(consultas) {
+function ordenaPorNome() { //Estava dando erro por causa do nome da função
    // implemente sua lógica aqui
+
+   agendaConsultas = consultas.sort((pessoaA, pessoaB) => {
+      if (pessoaA.nome > pessoaB.nome){
+         return 1
+      }
+      if (pessoaA.nome < pessoaB.nome){
+         return -1
+      }
+      return 0
+   })
+
+   return agendaConsultas
+
+
+}
+
+function ordenaPorData() { //Estava dando erro. Adicionei essa função
+   // implemente sua lógica aqui
+
+   // A) A sua primeira tarefa é criar uma função que receba o array consultas como parâmetro e retorne um array de consultas ordenado pelos nomes dos pacientes (em ordem alfabética)
 }
 
 //Exercício 20
@@ -465,4 +485,6 @@ const contas = [
 
 function atualizaSaldo() {
    // implemente sua lógica aqui
+
+
 }
