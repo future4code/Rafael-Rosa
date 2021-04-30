@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
+import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem="https://uploads-ssl.webflow.com/5d640f4558306be99cf47a0e/5dd57846babb597b77c6bb1d_PerfilFuture4_cor.png" 
-          nome="Astrodev" 
-          descricao="Oi, eu sou o Astrodev. Sou o chefe dos alunos da Labenu. Adoro pedir e-mails na sexta-feira e esperar os alunos responderem só para responder com uma bronca e dar mais trabalho para eles."
+          imagem="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=ShirtVNeck&clotheColor=Blue03&eyeType=Happy&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Light'" 
+          nome="Rafael S. da Rosa" 
+          descricao="Oi, eu sou o Rafael, aluno do curso de frontend na Labenu. Adoro descobrir coisas novas. Morei na Irlanda e ao pensar que conheceria o mundo, na verdade, conheci a mim mesmo. Entendi que questionar faz pensar no outro lado e que não existem verdades absolutas. Gosto de gente e acredito no potencial que a tecnologia tem de fazer a vida melhor."
         />
         
         <ImagemButton 
@@ -23,15 +24,23 @@ function App() {
       <div className="page-section-container">
         <h2>Experiências profissionais</h2>
         <CardGrande 
-          imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
-          nome="Labenu" 
-          descricao="Formando desenvolvedores para o mercado de trabalho!" 
+          imagem="https://daguanatural.com.br/site/wp-content/uploads/2020/09/icone-ideia.jpg" 
+          nome="Ideia Agência Digital" 
+          descricao="Gerente de Projetos" 
         />
         
         <CardGrande 
-          imagem="https://imagens.canaltech.com.br/empresas/4418.400.jpg" 
-          nome="NASA" 
-          descricao="Apontando defeitos." 
+          imagem="https://agenciapense.com.br/wp-content/uploads/2020/05/cropped-favicon-2-02-32x32.png" 
+          nome="Agência Pense" 
+          descricao="Atendimento Comercial" 
+        />
+      </div>
+
+      <div className="page-section-container">
+        <h2>Dados de contato</h2>
+        <CardPequeno 
+          email="meu@email.com.br" 
+          fone="(51) 99999.9999" 
         />
       </div>
 
