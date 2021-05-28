@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const PageContainer = styled.div`
   text-align: center;
   background-color: #282c34;
-  min-height: 100vh;
+  padding-top: 20px;
 `
 
 const Title = styled.h1`
@@ -17,6 +17,7 @@ const DivInput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 20px;
 
   input{
     margin: 0 5px;
@@ -26,13 +27,9 @@ const DivInput = styled.div`
 export default class RegisterPage extends React.Component {
   
   render(){
-    console.log("name" ,this.props.valueInputName)
-    console.log("email" ,this.props.valueInputEmail)
 
     return (
       <PageContainer>
-        <button
-        onClick={() => this.props.onClickChangePage('users')}>Lista de Usuários</button>
         <Title>Cadastrar Usuário</Title>
         <DivInput>
           <input 
@@ -51,6 +48,7 @@ export default class RegisterPage extends React.Component {
           onClick={this.props.createUser}
           > Criar Usuário </button>
         </DivInput>
+        <button onClick={() => this.props.onClickChangePage('UsersPage')}>Lista de Usuários</button>
       </PageContainer>
     )
 
