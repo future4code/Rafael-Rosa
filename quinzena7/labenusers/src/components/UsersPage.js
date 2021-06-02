@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const PageContainer = styled.div`
   text-align: center;
@@ -14,39 +15,94 @@ const Title = styled.h1`
 const UsersList = styled.div`
 
   padding-bottom: 20px;
-  
-  div{
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
+`
+const UserBox = styled.div`
+  width: 50%;
+  border: 1px solid #000;
+  margin: 2px auto;
+  padding: 0 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   p{
-    width: 30%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  div div{
-    width: 70%;
+  div{
+    width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 
   button{
     margin: 0 5px;
   }
-
 `
 
 export default class UsersPage extends React.Component {
 
+  state = {
+    usersList: [],
+    userData: ''
+  }
+
   componentDidMount = () => {
-    this.props.getAllUsers()
+    this.getAllUsers()
+  }
+
+  getAllUsers = () => {
+
+    axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
+      headers: {
+        Authorization: "rafael-rosa-munoz"
+      }
+    }).then((response) => {
+      this.setState({ usersList: response.data })
+    }).catch((error) => {
+      console.log(error.message)
+    })
+  }
+
+  getUserData = (idUser) => {
+
+    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${idUser}`, {
+      headers: {
+        Authorization: "rafael-rosa-munoz"
+      }
+    }).then((response) => {
+      console.log(response);
+      this.setState({ userData: response.data })
+      this.showUserDetails(response.data.name, response.data.email)
+    }).catch((error) => {
+      console.log(error.message)
+    })
+  }
+
+  deleteUser = (id, name) => {
+
+    const confirmation = window.confirm("Você tem certeza que deseja deletar " + name + " da lista?")
+
+    if (confirmation) {
+      axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+        headers: {
+          Authorization: "rafael-rosa-munoz"
+        }
+      }).then(() => {
+        this.getAllUsers()
+      }).catch((error) => {
+        console.log(error.message)
+      })
+    }
+  }
+
+  showUserDetails = (name, email) => {
+    alert("Nome: " + name + "\nEmail: " + email)
   }
 
   render() {
@@ -55,14 +111,16 @@ export default class UsersPage extends React.Component {
       <PageContainer>
         <Title>Lista de Usuários</Title>
         <UsersList>
-          {this.props.usersList.map((user) => {
-            return <div>
-              <p>{user.name}</p>
-              <div>
-                <button onClick={() => this.props.deleteUser(user.id, user.name)}>Delete</button>
-                <button onClick={() => this.props.getUserData(user.id)}>Detalhes do usuário</button>
-              </div>
-            </div>
+          {this.state.usersList.map((user) => {
+            return (
+              <UserBox key={user.id}>
+                <p>{user.name}</p>
+                <div>
+                  <button onClick={() => this.getUserData(user.id)}>Detalhes</button>
+                  <button onClick={() => this.deleteUser(user.id, user.name)}>X</button>
+                </div>
+              </UserBox>
+            )
           })}
         </UsersList>
         <button onClick={() => this.props.onClickChangePage('RegisterPage')}>Voltar para Home</button>
