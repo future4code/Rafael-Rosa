@@ -1,12 +1,16 @@
 import React from 'react'
+import {HeaderContainer} from './styled'
 
 export default class Header extends React.Component {
     
     render() {
         return (
-            <div>
-                HEADER
-            </div>
+            <HeaderContainer>
+                <div>LOGO</div>
+                <button
+                onClick={() => {this.props.changePage("createPlaylist")}}
+                >Criar Playlist</button>
+            </HeaderContainer>
         )
     }
 }

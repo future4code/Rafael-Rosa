@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 
-export const FooterContainer = styled.footer`
+export const MainContainer = styled.main`
     width: 100%;
-    background-color: gold;
+    background-color: violet;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 `
