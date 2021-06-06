@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ShowDetailsPlaylists from '../../components/ShowDetailsPlaylists'
 
-import { PageContainer, MainContainer } from './styled'
+import { PageContainer, MainContainer, Title } from './styled'
 
 export default class DetailPlaylistPage extends React.Component {
 
@@ -17,8 +17,11 @@ export default class DetailPlaylistPage extends React.Component {
           changePage={this.props.changePage}
         />
         <MainContainer>
+          <Title>Lista de Músicas</Title>
           <ShowDetailsPlaylists 
             selectedPlaylistDetails={this.props.selectedPlaylistDetails}
+            idSelectedPlaylist={this.props.idSelectedPlaylist}
+            getPlaylistData={this.props.getPlaylistData}
           />
         </MainContainer>
         <Footer />

@@ -12,6 +12,11 @@ export const MainContainer = styled.main`
     width: 100%;
     background-color: ${Colors.darkblue};
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
+`
+
+export const Title = styled.h1`
+  color: ${Colors.white};
 `

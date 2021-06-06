@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ShowPlaylistsList from '../../components/ShowPlaylistsList'
 
-import { PageContainer, MainContainer } from './styled'
+import { PageContainer, MainContainer, Title } from './styled'
 
 export default class ShowPlaylistPage extends React.Component {
 
@@ -24,19 +24,19 @@ export default class ShowPlaylistPage extends React.Component {
     })
   }
 
-  getPlaylistData = (idPlaylist) => {
+  // getPlaylistData = (idPlaylist) => {
 
-    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${idPlaylist}/tracks`, {
-      headers: {
-        Authorization: "rafael-rosa-munoz"
-      }
-    }).then((response) => {
-      this.props.setSelectedPlaylist(response.data.result.tracks)
-      this.props.changePage('detailPlaylist')
-    }).catch((error) => {
-      console.log(error.message)
-    })
-  }
+  //   axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${idPlaylist}/tracks`, {
+  //     headers: {
+  //       Authorization: "rafael-rosa-munoz"
+  //     }
+  //   }).then((response) => {
+  //     this.props.setSelectedPlaylist(idPlaylist, response.data.result.tracks)
+  //     this.props.changePage('detailPlaylist')
+  //   }).catch((error) => {
+  //     console.log(error.message)
+  //   })
+  // }
 
   deletePlaylist = (id, name) => {
 
@@ -68,12 +68,13 @@ export default class ShowPlaylistPage extends React.Component {
           changePage={this.props.changePage}
         />
         <MainContainer>
+          <Title>Playlists</Title>
           <ShowPlaylistsList
             changePage={this.props.changePage}
             allPlaylists={this.state.allPlaylists}
             getAllPlaylists={this.getAllPlaylists}
-            getPlaylistData={this.getPlaylistData}
             deletePlaylist={this.deletePlaylist}
+            getPlaylistData={this.props.getPlaylistData}
           />
         </MainContainer>
         <Footer />
