@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import { FormBox } from './styled'
+import { FormBox, Title } from './styled'
 
 export default class CreatePlaylistForm extends React.Component {
 
@@ -32,16 +32,16 @@ export default class CreatePlaylistForm extends React.Component {
   render() {
     return (
       <FormBox>
-        <h1>Crie sua playlist</h1>
-        <p>Nome da Playlist</p>
+        <Title>Crie sua playlist</Title>
         <input
           type={"text"}
+          placeholder={"Nome da Playlist"}
           onChange={this.handleInput}
           value={this.state.inputData}
         />
         <button onClick={this.createPlaylist}>
           Cadastrar
-                </button>
+        </button>
       </FormBox >
     )
   }

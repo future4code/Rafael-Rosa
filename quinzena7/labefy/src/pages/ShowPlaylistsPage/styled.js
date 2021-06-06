@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import {Colors} from '../../constants/colors'
 
 export const PageContainer = styled.div`
   display: grid;
@@ -9,7 +10,7 @@ export const PageContainer = styled.div`
 
 export const MainContainer = styled.main`
     width: 100%;
-    background-color: violet;
+    background-color: ${Colors.darkblue};
     display: flex;
     justify-content: center;
     align-items: center;
