@@ -1,30 +1,64 @@
 import React from 'react'
-import Main from './components/Main'
-import Header from './components/Header'
-import Footer from './components/Footer'
+// import Main from './components/Main'
+// import Header from './components/Header'
+// import Footer from './components/Footer'
+import CreatePlaylistPage from './pages/CreatePlaylistPage'
+import ShowPlaylistsPage from './pages/ShowPlaylistsPage'
+import DetailPlaylistPage from './pages/DetailPlaylistPage'
 
-import {AppContainer} from './components/AppStyles'
-
+import { AppContainer } from './components/AppStyles'
 
 export default class App extends React.Component {
-  
+
   state = {
-    currentPage: "createPlaylist"
+    currentPage: "createPlaylist",
+    selectedPlaylistDetails: []
   }
 
   changePage = (page) => {
-    console.log(page);
-    this.setState({ currentPage: page})
+    this.setState({ currentPage: page })
   }
 
-  render(){
-    return (
-      <AppContainer>
-        <Header 
+  setSelectedPlaylist = (playlistTracks) => {
+    this.setState({ selectedPlaylistDetails: playlistTracks })
+  }
+
+  renderPage = () => {
+    switch (this.state.currentPage) {
+      case 'createPlaylist':
+        return (
+          <CreatePlaylistPage
+            currentPage={this.state.currentPage}
+            changePage={this.changePage}
+          />
+        )
+      case 'showPlaylists':
+        return (
+          <ShowPlaylistsPage
+            currentPage={this.state.currentPage}
+            changePage={this.changePage}
+            setSelectedPlaylist={this.setSelectedPlaylist}
+          />
+        )
+      case 'detailPlaylist':
+        return (
+          <DetailPlaylistPage
+            changePage={this.changePage}
+            selectedPlaylistDetails={this.state.selectedPlaylistDetails}
+          />
+        )
+      default:
+        <CreatePlaylistPage
+          currentPage={this.state.currentPage}
           changePage={this.changePage}
         />
-        <Main />
-        <Footer />
+    }
+  }
+
+  render() {
+    return (
+      <AppContainer>
+        {this.renderPage()}
       </AppContainer>
     );
   }

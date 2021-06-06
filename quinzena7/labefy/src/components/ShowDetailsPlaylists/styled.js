@@ -15,6 +15,7 @@ export const ItemList = styled.div`
   margin: 2px auto;
   padding: 0 5px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   p{
