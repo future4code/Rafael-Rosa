@@ -3,7 +3,6 @@ import {Colors} from '../../constants/colors'
 
 export const ListBox = styled.div`
   width: 50%;
-  /* background-color: white; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,11 +28,22 @@ export const ItemList = styled.div`
   }
 `
 export const PlaylistName = styled.p`
-  width: 50%;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `
 export const PlaylistButton = styled.button`
+  background-color: ${Colors.gray};
+  border: none;
+  border-radius: 25px;
+  padding: 10px 15px;
   margin: 0 5px;
+  transition: all 100ms ease-out;
+
+  :hover {
+    cursor: pointer;
+  }
 `

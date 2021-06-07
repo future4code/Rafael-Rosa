@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import CreatePlaylistForm from '../../components/CreatePlaylistForm'
 
-import { PageContainer, MainContainer, Title } from './styled'
+import { PageContainer, MainTag, MainContainer, Title } from './styled'
 
 export default class CreatePlaylistPage extends React.Component {
 
@@ -15,10 +15,12 @@ export default class CreatePlaylistPage extends React.Component {
           buttonClickArgument={'showPlaylists'}
           changePage={this.props.changePage}
         />
-        <MainContainer>
-          <Title>Crie Sua Playlist</Title>
-          <CreatePlaylistForm />
-        </MainContainer>
+        <MainTag>
+          <MainContainer>
+            <Title>Crie sua playlist</Title>
+            <CreatePlaylistForm />
+          </MainContainer>
+        </MainTag>
         <Footer />
       </PageContainer>
     );

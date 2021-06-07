@@ -23,7 +23,6 @@ export default class App extends React.Component {
   }
 
   getPlaylistData = (idPlaylist) => {
-
     axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${idPlaylist}/tracks`, {
       headers: {
         Authorization: "rafael-rosa-munoz"

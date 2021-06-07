@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
+import {Colors} from '../constants/colors'
  
 const GlobalStyle = createGlobalStyle`
   body {
@@ -6,6 +7,14 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
     height: 100vh;
+  }
+
+  a{
+    text-decoration: none;
+
+    :hover {
+      color: ${Colors.green};
+    }
   }
 `;
  
