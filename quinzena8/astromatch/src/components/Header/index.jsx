@@ -29,7 +29,13 @@ export default function Header(props) {
           </ChangePageButton>
         )
       default:
-        return (<></>)
+        return (
+          <ChangePageButton
+            onClick={() => { props.changePage('homepage') }}
+          >
+            <IconButton src={HomeIcon} alt="HomeIcon" />
+          </ChangePageButton>
+        )
 
     }
   }

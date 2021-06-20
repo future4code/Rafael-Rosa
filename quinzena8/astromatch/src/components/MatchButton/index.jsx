@@ -5,10 +5,10 @@ import { ButtonTag } from './styled'
 export default function MatchButton(props) {
   return (
     <ButtonTag
-      backgroundColor={props.backgroundColor}
+      borderColor={props.borderColor}
       onClick={() => {props.postChoosePerson(props.id, props.choiceYes)}}
     >
-      {props.icon}
+      <img src={props.icon} />
     </ButtonTag>
   );
 }

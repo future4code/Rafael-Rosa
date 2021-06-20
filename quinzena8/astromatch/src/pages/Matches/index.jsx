@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { PageContainer, MainContainer, ButtonsContainer } from './styled'
+import { PageContainer, MainContainer } from './styled'
 
 import Header from '../../components/Header'
-import Card from '../../components/Card';
-import MatchButton from '../../components/MatchButton';
+import MatchesList from '../../components/MatchesList'
 
-export default function Homepage(props) {
+export default function Matches(props) {
   return (
     <PageContainer>
       <Header
@@ -14,28 +13,11 @@ export default function Homepage(props) {
         changePage={props.changePage}
         putClear={props.putClear}
       />
-      TESTE
-      {/* <MainContainer>
-        <Card
-          profileToChose={props.profileToChose}
+      <MainContainer>
+        <MatchesList 
+          matches={props.matches}
         />
-        <ButtonsContainer>
-          <MatchButton
-            backgroundColor={'red'}
-            icon={'X'}
-            choiceYes={false}
-            id={props.profileToChose.id}
-            postChoosePerson={props.postChoosePerson}
-          />
-          <MatchButton
-            backgroundColor={'green'}
-            icon={'V'}
-            choiceYes={true}
-            id={props.profileToChose.id}
-            postChoosePerson={props.postChoosePerson}
-          />
-        </ButtonsContainer>
-      </MainContainer> */}
+      </MainContainer>
     </PageContainer>
   );
 }
