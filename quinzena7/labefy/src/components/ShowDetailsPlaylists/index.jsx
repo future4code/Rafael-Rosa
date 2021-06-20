@@ -9,12 +9,12 @@ import { ListBox, ItemList, TrackName, DeleteButton, FormClosed, IconContainer, 
 export default class ShowDetailsPlaylists extends React.Component {
 
   state = {
-    tracks: this.props.selectedPlaylistDetails,
     onChangeName: "",
     onChangeArtist: "",
     onChangeURL: "",
     formOpen: false
   }
+
 
   onChangeName = (e) => {
     this.setState({ onChangeName: e.target.value })
@@ -71,7 +71,7 @@ export default class ShowDetailsPlaylists extends React.Component {
   }
 
   render() {
-    const showTracks = this.state.tracks.map((track, index) => {
+    const showTracks = this.props.selectedPlaylistDetails.map((track, index) => {
       return (
         <ItemList key={index}>
           <div>
