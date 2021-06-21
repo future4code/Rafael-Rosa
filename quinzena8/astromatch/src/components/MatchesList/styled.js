@@ -8,7 +8,7 @@ export const MatchesListContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const MatchItem = styled.p`
+export const MatchItem = styled.div`
   background-color: ${softblue};
   color: whitesmoke;
   padding: 8px 4px;

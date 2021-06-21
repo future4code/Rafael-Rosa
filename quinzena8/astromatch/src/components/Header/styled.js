@@ -33,6 +33,9 @@ export const ClearListButton = styled(HeaderButton)`
   }
 `
 export const ChangePageButton = styled(HeaderButton)`
+  :hover {
+    background-color: #e5e5e5;
+  }
 `
 export const IconButton = styled.img`
   max-width: 100%;

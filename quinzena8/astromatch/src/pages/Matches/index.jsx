@@ -1,9 +1,9 @@
 import React from 'react'
+import Header from '../../components/Header'
+import MatchesList from '../../components/MatchesList'
 
 import { PageContainer, MainContainer } from './styled'
 
-import Header from '../../components/Header'
-import MatchesList from '../../components/MatchesList'
 
 export default function Matches(props) {
   return (

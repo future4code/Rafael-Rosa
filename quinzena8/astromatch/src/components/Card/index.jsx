@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { CardContainer, LayerTransparency } from './styled'
 
 

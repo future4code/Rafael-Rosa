@@ -1,12 +1,13 @@
 import React from 'react'
-
-import { PageContainer, MainContainer, ButtonsContainer, MessageNoProfileContainer } from './styled'
-import Refuse from '../../assets/refuse-color.png'
-import Check from '../../assets/check-color.png'
-
 import Header from '../../components/Header'
 import Card from '../../components/Card';
 import MatchButton from '../../components/MatchButton';
+
+import Refuse from '../../assets/refuse-color.png'
+import Check from '../../assets/check-color.png'
+
+import { PageContainer, MainContainer, ButtonsContainer, MessageNoProfileContainer } from './styled'
+
 
 export default function Homepage(props) {
   return (
@@ -43,7 +44,7 @@ export default function Homepage(props) {
         <MainContainer>
           <MessageNoProfileContainer>
             <p>Não há mais perfis disponíveis</p>
-            <p>Você pode limpar a lista de Matches e começar novamente, 
+            <p>Você pode limpar a lista de Matches e começar novamente,
               <span onClick={props.putClear}> clicando aqui</span>
             </p>
           </MessageNoProfileContainer>

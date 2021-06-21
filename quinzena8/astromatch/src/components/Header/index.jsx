@@ -5,8 +5,8 @@ import ClearIcon from '../../assets/clear-list.png'
 import MatchIcon from '../../assets/match-list.png'
 import HomeIcon from '../../assets/home.png'
 
-
 import { HeaderTag, ImageLogo, ClearListButton, ChangePageButton, IconButton } from './styled'
+
 
 export default function Header(props) {
 

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { MatchesListContainer, MatchItem, ItemPhoto, ItemDescription } from './styled'
 
 
@@ -6,9 +7,9 @@ export default function MatchesList(props) {
 
   const renderList = props.matches.map((match) => {
     return (
-      <MatchItem>
+      <MatchItem key={match.id}>
         <ItemPhoto>
-          <img src={match.photo} />
+          <img src={match.photo} alt={'Foto'}/>
         </ItemPhoto>
         <ItemDescription>
           {match.name}, {match.age}
@@ -19,8 +20,8 @@ export default function MatchesList(props) {
 
   return (
     <MatchesListContainer>
-      { 
-        props.matches.length > 0 ? {renderList} : <MatchItem>Você ainda não tem matches :(</MatchItem>
+      {
+        props.matches.length > 0 ? renderList : <MatchItem>Você ainda não tem matches :(</MatchItem>
       }
     </MatchesListContainer>
   );

@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Register from './pages/Register'
 import Homepage from './pages/Homepage'
 import Matches from './pages/Matches'
 import Header from './components/Header'
+import { urlAPI } from './constants/api'
 
-import { AppContainer } from './styled'
+import { AppContainer, Loader, AlertMatch } from './styled'
 
 
 function App() {
 
   const [user, setUser] = useState('rafael-rosa')
   const [profileToChose, setProfileToChose] = useState('')
-  const [currentPage, setCurrentPage] = useState('homepage')
+  const [currentPage, setCurrentPage] = useState('register')
   const [matches, setMatches] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [newMatch, setNewMatch] = useState(false)
 
 
   useEffect(() => {
@@ -20,13 +24,14 @@ function App() {
     getMatches()
   }, [])
 
+  useEffect(() => {
+    setLoading(false)
+  }, [profileToChose, currentPage, user])
 
-  const changePage = (page) => {
-    setCurrentPage(page)
-  }
 
   const getProfileToChose = () => {
-    axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${user}/person`)
+    setLoading(true)
+    axios.get(`${urlAPI}/${user}/person`)
       .then((response) => {
         setProfileToChose(response.data.profile)
       })
@@ -36,17 +41,18 @@ function App() {
   }
 
   const postChoosePerson = (id, choice) => {
+    setLoading(true)
 
     const body = {
       "id": id,
       "choice": choice
     }
 
-    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${user}/choose-person`, body)
+    axios.post(`${urlAPI}/${user}/choose-person`, body)
       .then((response) => {
-        console.log(response.data, profileToChose.name)
         if (response.data.isMatch === true) {
           getMatches()
+          matchAlert()
         }
         getProfileToChose()
       })
@@ -56,10 +62,12 @@ function App() {
   }
 
   const putClear = () => {
-    axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${user}/clear`)
+    setLoading(true)
+    axios.put(`${urlAPI}/${user}/clear`)
       .then((response) => {
-        response.data.message === 'Success' && getProfileToChose()
-        console.log(response.data)
+        response.data.message === 'Success' && changePage('register')
+        setUser('')
+        getProfileToChose()
       })
       .catch((err) => {
         console.log(err)
@@ -67,9 +75,10 @@ function App() {
   }
 
   const getMatches = () => {
-    axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${user}/matches`)
+    setLoading(true)
+
+    axios.get(`${urlAPI}/${user}/matches`)
       .then((response) => {
-        console.log('response.data: ', response.data.matches)
         setMatches(response.data.matches)
       })
       .catch((err) => {
@@ -77,52 +86,78 @@ function App() {
       })
   }
 
+  const changePage = (page) => {
+    setCurrentPage(page)
+    page === 'matches' && getMatches()
+  }
+
+  const RegisterUser = (username) => {
+    setUser(username)
+    changePage('homepage')
+  }
+
+  const matchAlert = () => {
+    setNewMatch(true)
+    setTimeout(() => {
+      setNewMatch(false)
+    }, 1500);
+
+  }
+
   const renderPage = () => {
 
-    switch (currentPage) {
-      case 'homepage':
-        return (
-          <Homepage
-            profileToChose={profileToChose}
-            postChoosePerson={postChoosePerson}
-            currentPage={currentPage}
-            changePage={changePage}
-            putClear={putClear}
-          />
-        )
-      case 'matches':
-        return (
-          <Matches
-            currentPage={currentPage}
-            changePage={changePage}
-            putClear={putClear}
-            matches={matches}
-          />
-        )
-      default:
-        return (
-          <>
-            <Header
+    if (loading) {
+      return <Loader>
+        <h1>Carregando...</h1>
+      </Loader>
+    } else {
+      
+      switch (currentPage) {
+        case 'register':
+          return (
+            <Register
+              RegisterUser={RegisterUser}
+              user={user}
+            />
+          )
+        case 'homepage':
+          return (
+            <Homepage
+              profileToChose={profileToChose}
+              postChoosePerson={postChoosePerson}
               currentPage={currentPage}
               changePage={changePage}
               putClear={putClear}
             />
-            <p>Ocorreu um Erro</p>
-          </>
-        )
+          )
+        case 'matches':
+          return (
+            <Matches
+              currentPage={currentPage}
+              changePage={changePage}
+              putClear={putClear}
+              matches={matches}
+            />
+          )
+        default:
+          return (
+            <>
+              <Header
+                currentPage={currentPage}
+                changePage={changePage}
+                putClear={putClear}
+              />
+              <p>Ocorreu um Erro</p>
+            </>
+          )
+      }
     }
   }
 
-  // console.log(profileToChose)
-  // console.log('matches: ', matches);
-
   return (
     <AppContainer>
+      {newMatch && <AlertMatch>Você tem um novo Match! :)</AlertMatch>}
       {renderPage()}
-      {/* <button onClick={putClear}>apagar</button> */}
-      <button onClick={getMatches}>Matches</button>
-      <button onClick={() => { postChoosePerson(profileToChose.id) }}>escolher</button>
-
     </AppContainer>
   );
 }

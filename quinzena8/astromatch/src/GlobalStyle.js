@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     width: 100vw;
     height: 100vh;
+    padding-top: 10px;
   }
 
   h1 {
@@ -20,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    cursor: pointer;
+  }
+
+  button {
     cursor: pointer;
   }
 

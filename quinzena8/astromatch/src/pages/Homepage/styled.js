@@ -18,7 +18,6 @@ export const MainContainer = styled.div`
 `
 
 export const ButtonsContainer = styled.div`
-  /* background-color: blueviolet; */
   width: 100%;
   height: 30%;
   display: flex;
