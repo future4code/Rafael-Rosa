@@ -1,10 +1,17 @@
+import { useHistory } from "react-router-dom";
 
-function AdminHomePage() {
+export default function AdminHomePage() {
+
+  const history = useHistory()
+
+  const goToHomePage = () => {
+    history.push("/")
+  }
+
   return (
-    <div className="App">
-      TESTE
+    <div>
+      <p>AdminHomePage</p>
+      <button onClick={goToHomePage}>Voltar para Home</button>
     </div>
   );
 }
-
-export default AdminHomePage;
