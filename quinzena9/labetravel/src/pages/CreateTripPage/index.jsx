@@ -1,7 +1,12 @@
 import { useHistory } from "react-router-dom";
 
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+
+import { PageContainer } from './styled'
+
 export default function CreateTripPage() {
-  
+
   const history = useHistory()
 
   const goToHomePage = () => {
@@ -9,9 +14,11 @@ export default function CreateTripPage() {
   }
 
   return (
-    <div>
+    <PageContainer>
+      <Header />
       <p>CreateTripPage</p>
       <button onClick={goToHomePage}>Voltar para Home</button>
-    </div>
+      <Footer />
+    </PageContainer>
   );
 }

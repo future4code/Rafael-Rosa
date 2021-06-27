@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
 import { GlobalStyles } from "./GlobalStyles";
 
@@ -8,29 +10,58 @@ import HomePage from "./pages/HomePage";
 import ListTripsPage from "./pages/ListTripsPage";
 import LoginPage from "./pages/LoginPage";
 import TripDetailsPage from "./pages/TripDetailsPage";
-import CadastroUsuario from "./CadastroUsuario";
 
 
 export default function App() {
+
+  const [tripsList, setTripsList] = useState([])
+  const [selectedTripToApply, setSelectedTripToApply] = useState('')
+
+  useEffect(() => {
+    getTripsList()
+  }, [])
+
+  const getTripsList = () => {
+    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trips`)
+      .then((response) => {
+        setTripsList(response.data.trips)
+      }).catch((err) => {
+        console.log('err', err);
+      })
+  }
+
+  const selectTripToApply = (trip) => {
+    setSelectedTripToApply(trip)
+  }
+
+
   return (
     <BrowserRouter>
       <GlobalStyles />
       <Switch>
 
-        <Route exact path="/">
-          <CadastroUsuario />
-        </Route>
-
         {/* <Route exact path="/">
-          <HomePage />
+          <ListaViagens />
         </Route> */}
 
+        <Route exact path="/">
+          <HomePage
+            getTripsList={getTripsList}
+          />
+        </Route>
+
         <Route exact path="/trips/list">
-          <ListTripsPage />
+          <ListTripsPage
+            tripsList={tripsList}
+            selectTripToApply={selectTripToApply}
+          />
         </Route>
 
         <Route exact path="/trips/application">
-          <ApplicationFormPage />
+          <ApplicationFormPage
+            tripsList={tripsList}
+            selectedTripToApply={selectedTripToApply}
+          />
         </Route>
 
         <Route exact path="/login">
