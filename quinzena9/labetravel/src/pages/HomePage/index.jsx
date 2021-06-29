@@ -16,7 +16,7 @@ export default function HomePage(props) {
 
   return (
     <PageContainer>
-      <button onClick={props.getTripsList}>getTripsList</button>
+      {/* <button onClick={props.getTripsList}>getTripsList</button> */}
       <Header />
       <Banner>
         <h1>

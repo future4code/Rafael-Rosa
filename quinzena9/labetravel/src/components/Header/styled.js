@@ -8,6 +8,10 @@ export const HeaderContainer = styled.header`
   background-color: #0F586C;
 `
 
+export const LogoImage = styled.img`
+  cursor: pointer;
+`
+
 export const HeaderButtonContainer = styled.div`
   border: 1px solid green;
   width: 20%;

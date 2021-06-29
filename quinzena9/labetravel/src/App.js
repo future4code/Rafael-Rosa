@@ -69,15 +69,15 @@ export default function App() {
         </Route>
 
         <Route exact path="/admin/trips/list">
-          <AdminHomePage />
-        </Route>
-
-        <Route exact path="/admin/trips/:id">
-          <TripDetailsPage />
+          {localStorage.getItem("token") ? <AdminHomePage /> : <LoginPage />}
         </Route>
 
         <Route exact path="/admin/trips/create">
-          <CreateTripPage />
+          {localStorage.getItem("token") ? <CreateTripPage /> : <LoginPage />}
+        </Route>
+        
+        <Route exact path="/admin/trips/:id">
+          {localStorage.getItem("token") ? <TripDetailsPage /> : <LoginPage />}
         </Route>
 
         <Redirect to="/" />

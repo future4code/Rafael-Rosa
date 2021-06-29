@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import Header from "../../components/Header";
 
 export default function TripDetailsPage() {
   
@@ -10,6 +11,7 @@ export default function TripDetailsPage() {
 
   return (
     <div>
+      <Header />
       <p>TripDetailsPage</p>
       <button onClick={goToHomePage}>Voltar para Home</button>
     </div>
