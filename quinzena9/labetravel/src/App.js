@@ -69,7 +69,7 @@ export default function App() {
         </Route>
 
         <Route exact path="/admin/trips/list">
-          {localStorage.getItem("token") ? <AdminHomePage /> : <LoginPage />}
+          {localStorage.getItem("token") ? <AdminHomePage tripsList={tripsList}/> : <LoginPage />}
         </Route>
 
         <Route exact path="/admin/trips/create">
