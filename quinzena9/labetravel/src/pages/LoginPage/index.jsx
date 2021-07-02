@@ -29,7 +29,9 @@ export default function LoginPage() {
     setUserPassword(event.target.value)
   }
 
-  const submitLogin = () => {
+  const onSubmitLogin = (event) => {
+
+    event.preventDefault()
 
     const body = {
       email: userEmail,
@@ -51,19 +53,24 @@ export default function LoginPage() {
     <div>
       <Header />
       <p>LoginPage</p>
-      <input
-        type={'email'}
-        placeholder={'Email'}
-        onChange={handleInputEmail}
-        value={userEmail}
-      />
-      <input
-        type={'text'}
-        placeholder={'Senha'}
-        onChange={handleInputPassword}
-        value={userPassword}
-      />
-      <button onClick={submitLogin}>Entrar</button>
+      <form onSubmit={onSubmitLogin}>
+        <input
+          type={'email'}
+          placeholder={'Email'}
+          onChange={handleInputEmail}
+          value={userEmail}
+        />
+        <input
+          type={'text'}
+          placeholder={'Senha'}
+          onChange={handleInputPassword}
+          value={userPassword}
+        />
+        <input 
+          type={"submit"} 
+          value={"Enviar"}
+        />
+      </form>
       <button onClick={goToHomePage}>Voltar para Home</button>
     </div>
   );

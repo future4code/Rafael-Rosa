@@ -28,7 +28,7 @@ export const FormContainer = styled.div`
   height: 100%;
 `
 
-export const FormApply = styled.form`
+export const Form = styled.form`
   background-color: ${green};
   border-radius: 25px;
   height: 300px;
