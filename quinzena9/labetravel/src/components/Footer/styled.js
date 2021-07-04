@@ -5,6 +5,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 0 10%;
   height: fit-content;
   background-color: ${green};
@@ -19,4 +20,5 @@ export const FooterContainer = styled.footer`
       color: ${yellow};
     }
   }
+
 `
