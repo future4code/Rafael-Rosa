@@ -6,7 +6,6 @@ export const getTripsList = (setData) => {
 
   axios.get(`${BASE_URL}/rafael-rosa-munoz/trips`)
     .then((response) => {
-      console.log('Fez a requisição!', response.data.trips);
       setData(response.data.trips)
     }).catch((err) => {
       console.log('err', err);
@@ -21,7 +20,6 @@ export const getTripDetails = (id, setData) => {
     }
   })
     .then((response) => {
-      console.log('Fez a requisição getTripDetails!', response.data.trip);
       setData(response.data.trip)
     }).catch((err) => {
       console.log('err', err);
@@ -36,7 +34,6 @@ export const postCreateTrip = (body, setClear, redirect) => {
 
   axios.post(`${BASE_URL}/rafael-rosa-munoz/trips`, body, { headers })
     .then((response) => {
-      console.log('Enviou! ', response.data)
       if (setClear) {
         setClear(true)
       }
@@ -50,7 +47,6 @@ export const postCreateTrip = (body, setClear, redirect) => {
 export const postApplyToTrip = (tripId, body, setClear, redirect) => {
   axios.post(`${BASE_URL}/rafael-rosa-munoz/trips/${tripId}/apply`, body)
     .then((response) => {
-      console.log(response.data);
       alert("Seu cadastro foi enviado. Entraremos em contato em breve.")
       if (setClear) {
         setClear(true)
@@ -65,11 +61,9 @@ export const postApplyToTrip = (tripId, body, setClear, redirect) => {
 export const postLogin = (body, redirect) => {
   axios.post(`${BASE_URL}/rafael-rosa-munoz/login`, body)
     .then((response) => {
-      console.log(response.data);
+      alert("Sucesso! Caso a lista não apareça, atualize a página, por favor.")
       localStorage.setItem("token", response.data.token)
       localStorage.setItem( "user", response.data.user.email)
-      // setData(response.data.trips)
-      console.log('Enviou! ', response.data)
       redirect('/admin/trips/list')
     }).catch((err) => {
       console.log('err', err);
@@ -85,13 +79,10 @@ export const putDecide = (tripId, candidateId, body) => {
 
   axios.put(`${BASE_URL}/rafael-rosa-munoz/trips/${tripId}/candidates/${candidateId}/decide`, body, { headers })
     .then((response) => {
-      console.log('Enviou! ', response.data)
     }).catch((err) => {
       console.log('err', err.response);
       alert("Ops! Houve um erro. Por favor, tente novamente ou entre em contato conosco.")
     })
-
-  // console.log("ENTROU NO PUTDECIDE", "\ntripId: ", tripId, "\ncandidateId: ", candidateId, "\nbody: ", body, "\nheaders: ", headers);
 }
 
 export const deleteTrip = (id, redirect) => {
@@ -102,7 +93,6 @@ export const deleteTrip = (id, redirect) => {
 
   axios.delete(`${BASE_URL}/rafael-rosa-munoz/trips/${id}`, { headers })
     .then((response) => {
-      console.log('Deletou a viagem!', response.data);
       redirect('/admin/trips/list')
     }).catch((err) => {
       console.log('err', err.response.data);
