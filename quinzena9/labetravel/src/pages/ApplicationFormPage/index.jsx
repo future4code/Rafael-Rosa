@@ -1,82 +1,56 @@
 import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import useForm from "../../hooks/useForm";
+import { getTripsList, postApplyToTrip } from "../../requests/API";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { PageContainer, TitleContainer, FormContainer, Form } from './styled'
-import { useState } from "react";
 
 
 export default function ListTripsPage(props) {
 
-  const [choosenTripName, setChoosenTripName] = useState(props.selectedTripToApply.name)
-  const [name, setName] = useState('')
-  const [age, setAge] = useState('')
-  const [applicationText, setApplicationText] = useState('')
-  const [profession, setProfession] = useState('')
-  const [country, setCountry] = useState('')
-
   const history = useHistory()
+  const [tripsList, setTripsList] = useState([])
+  const [selectedTrip, setSelectedTrip] = useState(props.selectedTripToApply)
+  const [clearForm, setClearForm] = useState(false)
+  const { form, onChange, clearFields } = useForm({ name: "", age: '', applicationText: "", profession: "", country: "" })
 
-  const goToHomePage = () => {
-    history.push("/")
+  useEffect(() => {
+    getTripsList(setTripsList)
+    if (clearForm) {
+      clearFields()
+      setClearForm(false)
+    }
+  }, [clearForm])
+
+  const changePage = (path) => {
+    history.push(path)
   }
 
-  const goToListTrips = () => {
-    history.push("/trips/list")
+  const handleSelectedTrip = (event) => {
+    
+    tripsList.forEach((trip) => {
+      if (trip.name === event.target.value) {
+        setSelectedTrip(trip)
+      } 
+    })
   }
 
-  const handleSelectTrip = (event) => {
-    setChoosenTripName(event.target.value)
-  }
-
-  const handleName = (event) => {
-    setName(event.target.value)
-  }
-
-  const handleAge = (event) => {
-    setAge(event.target.value)
-  }
-
-  const handleApplicationText = (event) => {
-    setApplicationText(event.target.value)
-  }
-
-  const handleProfession = (event) => {
-    setProfession(event.target.value)
-  }
-  
-  const handleCountry = (event) => {
-    setCountry(event.target.value)
-  }
-
-  const onSubmitForm = (event) => {
+  const submitForm = (event) => {
     event.preventDefault()
 
-    const body = {
-      name: name,
-      age: age,
-      applicationText: applicationText,
-      profession: profession,
-      country: country,
-      trip: props.selectedTripToApply.id
-    }
-
-    console.log(body);
+    postApplyToTrip(selectedTrip.id, form, setClearForm)
   }
-  console.log(props.selectedTripToApply);
 
-  const selectViagens = props.tripsList.map((trip) => {
+  const selectViagens = tripsList.map((trip) => {
     return (
       <option required key={trip.id}>
         {trip.name}
       </option>
     )
   })
-
-
-  // console.log('selectedTripToApply', props.selectedTripToApply);
-  // console.log('choosenTripName', choosenTripName);
 
   return (
     <PageContainer>
@@ -86,21 +60,58 @@ export default function ListTripsPage(props) {
         <h1>
           Embarque nessa viagem
         </h1>
-        <button onClick={goToHomePage}>Voltar para Home</button>
-        <button onClick={goToListTrips}>goToListTrips</button>
+        <button onClick={() => changePage('/')}>Voltar para Home</button>
+        <button onClick={() => changePage('/trips/list')}>goToListTrips</button>
       </TitleContainer>
 
       <FormContainer>
-        <Form onSubmit={onSubmitForm}>
-          <select value={choosenTripName} onChange={handleSelectTrip}>
+        <Form onSubmit={submitForm}>
+          <select value={selectedTrip.name} onChange={handleSelectedTrip}>
             {selectViagens}
           </select>
-          <input required type={'text'} placeholder={'Nome'} onChange={handleName}/>
-          <input required type={'number'} placeholder={'Idade'} onChange={handleAge}/>
-          <input required type={'text'} placeholder={'Texto de Candidatura'} onChange={handleApplicationText}/>
-          <input required type={'text'} placeholder={'Profissão'} onChange={handleProfession}/>
-          <input required type={'text'} placeholder={'País'} onChange={handleCountry}/>
-          <button>Enviar</button>
+          <input
+            name={'name'}
+            value={form.name}
+            onChange={onChange}
+            type={'text'}
+            placeholder={'Nome'}
+            required
+          />
+          <input
+            name={'age'}
+            value={form.age}
+            onChange={onChange}
+            type={'number'}
+            placeholder={'Idade'}
+            required
+          />
+          <input
+            name={'applicationText'}
+            value={form.applicationText}
+            onChange={onChange}
+            type={'text'}
+            placeholder={'Texto de Candidatura'}
+            required
+          />
+          <input
+            name={'profession'}
+            value={form.profession}
+            onChange={onChange}
+            type={'text'}
+            placeholder={'Profissão'}
+            required
+          />
+          <input
+            name={'country'}
+            value={form.country}
+            onChange={onChange}
+            type={'text'}
+            placeholder={'País (Ex.: BRA)'}
+            pattern={'[A-Z]{3}'}
+            title={'Código do País com 3 letras maiúsculas'}
+            required
+          />
+          <input type={'submit'} value={'Enviar'} />
         </Form>
       </FormContainer>
 

@@ -1,13 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import Header from "../../components/Header";
+import useForm from "../../hooks/useForm";
+import { postLogin } from "../../requests/API";
 
 export default function LoginPage() {
 
-  const [userEmail, setUserEmail] = useState('')
-  const [userPassword, setUserPassword] = useState('')
+  const {form, onChange} = useForm({ email: "", password: "" })
+
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -17,37 +18,18 @@ export default function LoginPage() {
 
   const history = useHistory()
 
-  const goToHomePage = () => {
-    history.push("/")
-  }
-
-  const handleInputEmail = (event) => {
-    setUserEmail(event.target.value)
-  }
-
-  const handleInputPassword = (event) => {
-    setUserPassword(event.target.value)
+  const changePage = (path) => {
+    history.push(path)
   }
 
   const onSubmitLogin = (event) => {
 
     event.preventDefault()
 
-    const body = {
-      email: userEmail,
-      password: userPassword
-    }
-
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/login', body)
-      .then((response) => {
-        console.log(response.data.token)
-        localStorage.setItem("token", response.data.token)
-        history.push('/admin/trips/list')
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    postLogin(form, changePage)
   }
+
+  console.log('Form: ', form);
 
   return (
     <div>
@@ -55,23 +37,25 @@ export default function LoginPage() {
       <p>LoginPage</p>
       <form onSubmit={onSubmitLogin}>
         <input
+          name={'email'}
+          value={form.email}
+          onChange={onChange}
           type={'email'}
           placeholder={'Email'}
-          onChange={handleInputEmail}
-          value={userEmail}
         />
         <input
+          name={'password'}
+          value={form.password}
+          onChange={onChange}
           type={'text'}
           placeholder={'Senha'}
-          onChange={handleInputPassword}
-          value={userPassword}
         />
-        <input 
-          type={"submit"} 
+        <input
+          type={"submit"}
           value={"Enviar"}
         />
       </form>
-      <button onClick={goToHomePage}>Voltar para Home</button>
+      <button onClick={() => changePage("/")}>Voltar para Home</button>
     </div>
   );
 }
