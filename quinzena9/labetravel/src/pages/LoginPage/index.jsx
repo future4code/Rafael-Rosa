@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useForm from "../../hooks/useForm";
-import { postCreateTrip, postLogin } from "../../requests/API";
+import { postLogin } from "../../requests/API";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -35,9 +35,7 @@ export default function LoginPage() {
   }
 
   const onSubmitLogin = (event) => {
-
     event.preventDefault()
-
     postLogin(form, changePage)
 
   }

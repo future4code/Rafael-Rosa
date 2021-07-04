@@ -8,7 +8,7 @@ import { SolidGreenButton } from "../../styles/styles";
 import { useEffect, useState } from "react";
 import { getTripsList } from "../../requests/API";
 
-export default function AdminHomePage(props) {
+export default function AdminHomePage() {
 
   const history = useHistory()
 

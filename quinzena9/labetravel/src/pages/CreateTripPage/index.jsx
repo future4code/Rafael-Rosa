@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import { PageContainer, TitleContainer, FormContainer, Form } from './styled'
 import { SolidGreenButton, SolidYellowButton } from "../../styles/styles";
 
+
 export default function CreateTripPage() {
 
   const history = useHistory()
@@ -51,7 +52,7 @@ export default function CreateTripPage() {
       <div>
         <SolidGreenButton onClick={goBackPage}>{'<'} Voltar</SolidGreenButton>
       </div>
-      
+
       <FormContainer>
         <Form onSubmit={submitForm}>
           <input
@@ -60,6 +61,8 @@ export default function CreateTripPage() {
             onChange={onChange}
             type={'text'}
             placeholder={'Nome da viagem'}
+            pattern={'^.{5,}$'}
+            title={'O nome do planeta deve ter pelo menos 5 letras'}
             required
           />
           <input
@@ -84,6 +87,8 @@ export default function CreateTripPage() {
             onChange={onChange}
             type={'text'}
             placeholder={'Descrição'}
+            pattern={'^.{30,}$'}
+            title={'Descreva sua motivação em, no mínimo, 30 letras'}
             required
           />
           <input
@@ -95,17 +100,17 @@ export default function CreateTripPage() {
             required
           />
           <div>
-          <SolidYellowButton type={'submit'}>
-            Enviar
-          </SolidYellowButton>
-          <SolidGreenButton onClick={goBackPage}>
-            Cancelar
-          </SolidGreenButton>
+            <SolidYellowButton type={'submit'}>
+              Enviar
+            </SolidYellowButton>
+            <SolidGreenButton onClick={goBackPage}>
+              Cancelar
+            </SolidGreenButton>
 
           </div>
         </Form>
       </FormContainer>
-
+      
       <Footer />
     </PageContainer>
   );

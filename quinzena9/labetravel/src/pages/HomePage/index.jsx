@@ -7,7 +7,7 @@ import { PageContainer, Banner } from './styled'
 import { SolidYellowButton } from "../../styles/styles";
 
 
-export default function HomePage(props) {
+export default function HomePage() {
 
   const history = useHistory()
 

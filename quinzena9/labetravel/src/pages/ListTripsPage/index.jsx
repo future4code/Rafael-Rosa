@@ -18,10 +18,6 @@ export default function ListTripsPage(props) {
     getTripsList(setTripsList)
   }, [])
 
-  // const goToHomePage = () => {
-  //   history.push("/")
-  // }
-
   const goToApplicationFormPage = (trip) => {
     history.push("/trips/application")
     props.selectTripToApply(trip)

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import BannerIMG from '../../assets/banner-image.jpg'
-import { green, white, yellow } from "../../constants/colors";
 
 
 export const PageContainer = styled.div`
@@ -23,5 +22,6 @@ export const Banner = styled.div`
 
   h1 {
     max-width: 60%;
+    margin-bottom: 20px;
   }
 `

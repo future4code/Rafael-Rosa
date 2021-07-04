@@ -26,7 +26,6 @@ export const SolidYellowButton = styled.button`
 
   :hover {
     background-color: ${white};
-    /* color: ${yellow}; */
   }
 `
 

@@ -48,22 +48,3 @@ export const Form = styled.form`
     min-width: 250px;
   }
 `
-
-export const CardTrip = styled.div`
-  background-color: ${green};
-  border-radius: 10px;
-  box-shadow: -4px 4px 1px 0px ${yellow};
-  padding: 10px;
-  width: 300px;
-  height: 250px;
-  margin: 10px;
-
-  h2, strong {
-    color: ${yellow};
-  }
-  
-  p {
-    color: ${white};
-  }
-`
-

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { green, white, yellow } from "../../constants/colors";
 
 export const HeaderContainer = styled.header`
-  /* height: fit-content; */
   display: flex;
   justify-content: space-between;
   align-items: center;

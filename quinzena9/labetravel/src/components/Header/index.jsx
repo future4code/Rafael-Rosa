@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-import { HeaderContainer, LogoImage, LoggedIn, LoggedOut, HeaderButton } from "./styled";
+import { HeaderContainer, LogoImage, LoggedIn, LoggedOut } from "./styled";
 import { TransparentButton } from "../../styles/styles";
 import Logo from '../../assets/labetravel-logo.svg'
 
@@ -16,7 +16,7 @@ export default function Header() {
 
   const doLogout = () => {
     const confirm = window.confirm('Você realmente deseja desconectar?')
-    if (confirm){
+    if (confirm) {
       localStorage.removeItem("token")
       localStorage.removeItem("user")
       changePage('/')

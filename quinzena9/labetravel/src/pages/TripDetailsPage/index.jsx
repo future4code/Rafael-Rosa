@@ -15,18 +15,12 @@ export default function TripDetailsPage() {
 
   const [trip, setTrip] = useState({})
 
-  // console.log('RENDERIZOU');
-
   useEffect(() => {
     getTripDetails(pathParams.id, setTrip)
     if (!localStorage.getItem("token")) {
       history.push('/login')
     }
   }, [])
-
-  useEffect(() => {
-    // console.log('ATUALIZOU TRIP', trip);
-  }, [trip])
 
 
   const changePage = (path) => {
@@ -109,7 +103,6 @@ export default function TripDetailsPage() {
       })
     }
   }
-
 
 
   return (

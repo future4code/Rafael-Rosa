@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const BASE_URL = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX'
+
 export const getTripsList = (setData) => {
 
-  axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trips`)
+  axios.get(`${BASE_URL}/rafael-rosa-munoz/trips`)
     .then((response) => {
       console.log('Fez a requisição!', response.data.trips);
       setData(response.data.trips)
@@ -13,7 +15,7 @@ export const getTripsList = (setData) => {
 
 export const getTripDetails = (id, setData) => {
 
-  axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trip/${id}`, {
+  axios.get(`${BASE_URL}/rafael-rosa-munoz/trip/${id}`, {
     headers: {
       auth: localStorage.getItem("token")
     }
@@ -32,7 +34,7 @@ export const postCreateTrip = (body, setClear, redirect) => {
     auth: localStorage.getItem("token")
   }
 
-  axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trips`, body, { headers })
+  axios.post(`${BASE_URL}/rafael-rosa-munoz/trips`, body, { headers })
     .then((response) => {
       console.log('Enviou! ', response.data)
       if (setClear) {
@@ -46,7 +48,7 @@ export const postCreateTrip = (body, setClear, redirect) => {
 }
 
 export const postApplyToTrip = (tripId, body, setClear, redirect) => {
-  axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trips/${tripId}/apply`, body)
+  axios.post(`${BASE_URL}/rafael-rosa-munoz/trips/${tripId}/apply`, body)
     .then((response) => {
       console.log(response.data);
       alert("Seu cadastro foi enviado. Entraremos em contato em breve.")
@@ -61,7 +63,7 @@ export const postApplyToTrip = (tripId, body, setClear, redirect) => {
 }
 
 export const postLogin = (body, redirect) => {
-  axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/login`, body)
+  axios.post(`${BASE_URL}/rafael-rosa-munoz/login`, body)
     .then((response) => {
       console.log(response.data);
       localStorage.setItem("token", response.data.token)
@@ -81,7 +83,7 @@ export const putDecide = (tripId, candidateId, body) => {
     auth: localStorage.getItem("token")
   }
 
-  axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trips/${tripId}/candidates/${candidateId}/decide`, body, { headers })
+  axios.put(`${BASE_URL}/rafael-rosa-munoz/trips/${tripId}/candidates/${candidateId}/decide`, body, { headers })
     .then((response) => {
       console.log('Enviou! ', response.data)
     }).catch((err) => {
@@ -98,7 +100,7 @@ export const deleteTrip = (id, redirect) => {
     auth: localStorage.getItem("token")
   }
 
-  axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-rosa-munoz/trips/${id}`, { headers })
+  axios.delete(`${BASE_URL}/rafael-rosa-munoz/trips/${id}`, { headers })
     .then((response) => {
       console.log('Deletou a viagem!', response.data);
       redirect('/admin/trips/list')
