@@ -4,7 +4,7 @@ import { green, white, yellow } from "../../constants/colors";
 
 
 export const PageContainer = styled.div`
-  height: calc(100vh + 105px);
+  min-height: calc(100vh + 105px);
   display: flex;
   flex-direction: column;
   background-color: ${white};
@@ -23,6 +23,7 @@ export const TitleContainer = styled.div`
 
 export const ListContainer = styled.div`
   height: 100%;
+  min-height: 245px;
   padding-top: 25px;
   display: flex;
   flex-direction: column;
@@ -36,12 +37,13 @@ export const CardTrip = styled.div`
   align-items: center;
   background-color: ${green};
   border-radius: 10px;
-  box-shadow: -4px 4px 1px 0px ${yellow};
+  box-shadow: -3px 3px 1px 0px ${yellow};
   padding: 10px;
   width: 80%;
   max-width: 800px;
   margin: 10px;
   cursor: pointer;
+  transition: all 100ms ease-in;
 
   h2, strong {
     color: ${yellow};
@@ -50,5 +52,18 @@ export const CardTrip = styled.div`
   p {
     color: ${white};
   }
+
+  i {
+    color: ${white};
+  }
+  
+  :hover{
+    box-shadow: -6px 6px 1px 0px ${yellow};
+  }
+  
+  :hover i{
+    color: ${yellow}
+  }
+  
 `
 

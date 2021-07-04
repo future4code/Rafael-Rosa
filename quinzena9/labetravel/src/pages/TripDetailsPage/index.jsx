@@ -3,9 +3,10 @@ import { useHistory, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-import { PageContainer, TitleContainer, ListContainer, CardTrip } from './styled'
+import { PageContainer, TitleContainer, ListContainer, CardTrip, EmptyListMessage } from './styled'
+import { SolidYellowButton, SolidGreenButton } from "../../styles/styles";
 import { useEffect, useState } from "react";
-import { getTripDetails, getTripsList } from "../../requests/API";
+import { deleteTrip, getTripDetails, putDecide } from "../../requests/API";
 
 export default function TripDetailsPage() {
 
@@ -14,7 +15,7 @@ export default function TripDetailsPage() {
 
   const [trip, setTrip] = useState({})
 
-  console.log('RENDERIZOU');
+  // console.log('RENDERIZOU');
 
   useEffect(() => {
     getTripDetails(pathParams.id, setTrip)
@@ -22,9 +23,9 @@ export default function TripDetailsPage() {
       history.push('/login')
     }
   }, [])
-  
+
   useEffect(() => {
-    console.log('ATUALIZOU TRIP', trip);
+    // console.log('ATUALIZOU TRIP', trip);
   }, [trip])
 
 
@@ -32,45 +33,83 @@ export default function TripDetailsPage() {
     history.push(path)
   }
 
+  const goBackPage = () => {
+    history.goBack()
+  }
 
-  // const candidatesList = trip.candidates.map((person) => {
-  //   return (
-  //     <CardTrip key={person.id}>
-  //       <div>
-  //         <h2>{person.name}</h2>
-  //         <p>{person.applicationText}</p>
-  //         <p>
-  //           <strong>Idade: </strong>{person.age} •
-  //           <strong> Profissão: </strong>{person.profession} •
-  //           <strong> País: </strong>{person.country} dias
-  //         </p>
-  //       </div>
-  //       <div>
-  //         <button>Aceitar</button>
-  //         <button>Recusar</button>
-  //       </div>
-  //     </CardTrip>
-  //   )
-  // })
-  
-  // const candidatesApproved = trip.approved.map((person) => {
-  //   return (
-  //     <CardTrip key={person.id}>
-  //       <div>
-  //         <h2>{person.name}</h2>
-  //         <p>{person.applicationText}</p>
-  //         <p>
-  //           <strong>Idade: </strong>{person.age} •
-  //           <strong> Profissão: </strong>{person.profession} •
-  //           <strong> País: </strong>{person.country} dias
-  //         </p>
-  //       </div>
-  //       <div>
-  //         <button>Remover</button>
-  //       </div>
-  //     </CardTrip>
-  //   )
-  // })
+  const deleteSelectedTrip = (tripId) => {
+    const confirm = window.confirm('Você realmente deseja apagar essa viagem? Os dados não poderão ser recuperados.')
+
+    if (confirm) {
+      deleteTrip(tripId, changePage)
+    }
+  }
+
+  const decideApplication = (candidateId, response) => {
+    const body = {
+      "approve": response
+    }
+
+    putDecide(trip.id, candidateId, body)
+
+    // Possível problema de atualização de página
+    getTripDetails(pathParams.id, setTrip)
+  }
+
+  let candidatesList
+  if (trip.candidates) {
+    if (trip.candidates.length === 0) {
+      candidatesList = <EmptyListMessage>Não há pessoas inscritas</EmptyListMessage>
+    } else {
+      candidatesList = trip.candidates.map((person) => {
+        return (
+          <CardTrip key={person.id}>
+            <div>
+              <h2>{person.name}</h2>
+              <p>{person.applicationText}</p>
+              <p>
+                <strong>Idade: </strong>{person.age} •
+                <strong> Profissão: </strong>{person.profession} •
+                <strong> País: </strong>{person.country}
+              </p>
+            </div>
+            <div>
+              <SolidYellowButton onClick={() => decideApplication(person.id, true)}>
+                Aceitar
+              </SolidYellowButton>
+              <SolidYellowButton onClick={() => decideApplication(person.id, false)}>
+                Recusar
+              </SolidYellowButton>
+            </div>
+          </CardTrip>
+        )
+      })
+    }
+  }
+
+  let candidatesApproved
+  if (trip.approved) {
+    if (trip.approved.length === 0) {
+      candidatesApproved = <EmptyListMessage>Não há candidatos aprovados.</EmptyListMessage>
+    } else {
+      candidatesApproved = trip.approved.map((person) => {
+        return (
+          <CardTrip key={person.id}>
+            <div>
+              <h2>{person.name}</h2>
+              <p>{person.applicationText}</p>
+              <p>
+                <strong>Idade: </strong>{person.age} •
+                <strong> Profissão: </strong>{person.profession} •
+                <strong> País: </strong>{person.country}
+              </p>
+            </div>
+          </CardTrip>
+        )
+      })
+    }
+  }
+
 
 
   return (
@@ -82,6 +121,12 @@ export default function TripDetailsPage() {
           Detalhes da Viagem
         </h1>
       </TitleContainer>
+
+      <div>
+        <SolidGreenButton onClick={goBackPage}>
+          {'<'} Voltar
+        </SolidGreenButton>
+      </div>
 
       <ListContainer>
         <CardTrip key={trip.id}>
@@ -95,15 +140,17 @@ export default function TripDetailsPage() {
             </p>
           </div>
           <div>
-            <button>Aceitar</button>
+            <SolidYellowButton onClick={() => deleteSelectedTrip(trip.id)}>
+              Deletar Viagem
+            </SolidYellowButton>
           </div>
         </CardTrip>
 
         <h2>Candidatos para aprovar</h2>
-        {/* {candidatesList} */}
+        {candidatesList}
 
-        {/* <h2>Candidatos Recusados</h2>
-        {candidatesApproved} */}
+        <h2>Candidatos Aprovados</h2>
+        {candidatesApproved}
       </ListContainer>
 
       <Footer />

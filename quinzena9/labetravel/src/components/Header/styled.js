@@ -1,11 +1,18 @@
 import styled from "styled-components";
+import { green, white, yellow } from "../../constants/colors";
 
 export const HeaderContainer = styled.header`
-  height: fit-content;
+  /* height: fit-content; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0F586C;
+  flex-wrap: wrap;
+  background-color: ${green};
+  color: ${white};
+
+  @media(max-width: 600px){
+    justify-content: center;
+  }
 `
 
 export const LogoImage = styled.img`
@@ -13,24 +20,30 @@ export const LogoImage = styled.img`
 `
 
 export const HeaderButtonContainer = styled.div`
-  border: 1px solid green;
-  width: 20%;
-  height: 100%;
+  width: 35%;
+  
+  @media(max-width: 600px){
+    width: 100%;
+  }
+`
+export const LoggedOut = styled(HeaderButtonContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
-export const HeaderButton = styled.button`
-  margin: 5px 10px;
-  padding: 5px 10px;
-  background-color: transparent;
-  color: whitesmoke;
-  border: none;
-  cursor: pointer;
+export const LoggedIn = styled(HeaderButtonContainer)`
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
 
-  :hover {
-    background-color: #fdb927;
+  p{
+    grid-column: span 2;
+    text-align: center;
+  }
+
+  span {
+    color: ${yellow}
   }
 `
 

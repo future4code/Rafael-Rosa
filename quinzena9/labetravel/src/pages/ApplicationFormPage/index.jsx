@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { PageContainer, TitleContainer, FormContainer, Form } from './styled'
+import { SolidGreenButton, SolidYellowButton } from "../../styles/styles"
 
 
 export default function ListTripsPage(props) {
@@ -29,19 +30,23 @@ export default function ListTripsPage(props) {
     history.push(path)
   }
 
+  const goBackPage = () => {
+    history.goBack()
+  }
+
   const handleSelectedTrip = (event) => {
-    
+
     tripsList.forEach((trip) => {
       if (trip.name === event.target.value) {
         setSelectedTrip(trip)
-      } 
+      }
     })
   }
 
   const submitForm = (event) => {
     event.preventDefault()
 
-    postApplyToTrip(selectedTrip.id, form, setClearForm)
+    postApplyToTrip(selectedTrip.id, form, setClearForm, changePage)
   }
 
   const selectViagens = tripsList.map((trip) => {
@@ -60,9 +65,11 @@ export default function ListTripsPage(props) {
         <h1>
           Embarque nessa viagem
         </h1>
-        <button onClick={() => changePage('/')}>Voltar para Home</button>
-        <button onClick={() => changePage('/trips/list')}>goToListTrips</button>
       </TitleContainer>
+
+      <div>
+        <SolidGreenButton onClick={goBackPage}>{'<'} Voltar</SolidGreenButton>
+      </div>
 
       <FormContainer>
         <Form onSubmit={submitForm}>
@@ -111,7 +118,14 @@ export default function ListTripsPage(props) {
             title={'Código do País com 3 letras maiúsculas'}
             required
           />
-          <input type={'submit'} value={'Enviar'} />
+          <div>
+            <SolidYellowButton type={'submit'}>
+              Enviar
+            </SolidYellowButton>
+            <SolidGreenButton onClick={goBackPage}>
+              Cancelar
+            </SolidGreenButton>
+          </div>
         </Form>
       </FormContainer>
 

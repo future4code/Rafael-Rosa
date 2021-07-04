@@ -4,7 +4,7 @@ import { green, white, yellow } from "../../constants/colors";
 
 
 export const PageContainer = styled.div`
-  height: calc(100vh + 105px);
+  min-height: calc(100vh + 105px);
   display: flex;
   flex-direction: column;
   background-color: ${white};

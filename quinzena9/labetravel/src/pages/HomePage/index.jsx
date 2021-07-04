@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { PageContainer, Banner } from './styled'
+import { SolidYellowButton } from "../../styles/styles";
 
 
 export default function HomePage(props) {
@@ -16,14 +17,15 @@ export default function HomePage(props) {
 
   return (
     <PageContainer>
-      {/* <button onClick={props.getTripsList}>getTripsList</button> */}
       <Header />
       <Banner>
         <h1>
           ENCONTRE SUA PRÓXIMA VIAGEM E EMBARQUE CONOSCO!
         </h1>
         <div>
-          <button onClick={goToListTrips}>VER LISTA</button>
+          <SolidYellowButton onClick={goToListTrips}>
+            VER LISTA
+          </SolidYellowButton>
         </div>
       </Banner>
       <Footer />

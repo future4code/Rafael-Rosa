@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
-import { GlobalStyles } from "./GlobalStyles";
+import { GlobalStyles } from "./styles/GlobalStyles";
 
 import AdminHomePage from "./pages/AdminHomePage";
 import ApplicationFormPage from "./pages/ApplicationFormPage";

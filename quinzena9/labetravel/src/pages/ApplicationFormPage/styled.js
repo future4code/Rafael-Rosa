@@ -26,17 +26,30 @@ export const FormContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   height: 100%;
+  max-width: 90%;
+  margin: 0 auto;
 `
 
 export const Form = styled.form`
   background-color: ${green};
   border-radius: 25px;
-  height: 300px;
+  height: fit-content;
+  min-height: 300px;
   width: 350px;
+  padding: 10px;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+
+  input, select{
+    margin: 10px 0;
+    padding: 5px;
+    outline: none;
+    min-width: 250px;
+  }
+
 `
 
 export const CardTrip = styled.div`

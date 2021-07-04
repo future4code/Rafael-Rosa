@@ -21,6 +21,7 @@ export const TitleContainer = styled.div`
   align-items: center;
 `
 
+
 export const ListContainer = styled.div`
   height: 100%;
   padding-top: 25px;
@@ -51,5 +52,10 @@ export const CardTrip = styled.div`
   p {
     color: ${white};
   }
+`
+
+export const EmptyListMessage = styled.p`
+  background-color: ${yellow};
+  margin: 25px 0;
 `
 

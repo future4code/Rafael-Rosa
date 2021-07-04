@@ -1,13 +1,26 @@
-import { HeaderContainer, LogoImage, HeaderButtonContainer, HeaderButton } from "./styled";
-import Logo from '../../assets/labetravel-logo.svg'
 import { useHistory } from "react-router-dom";
 
+import { HeaderContainer, LogoImage, LoggedIn, LoggedOut, HeaderButton } from "./styled";
+import { TransparentButton } from "../../styles/styles";
+import Logo from '../../assets/labetravel-logo.svg'
+
 export default function Header() {
+
+  const userEmail = localStorage.getItem("user")
 
   const history = useHistory()
 
   const changePage = (path) => {
     history.push(path)
+  }
+
+  const doLogout = () => {
+    const confirm = window.confirm('Você realmente deseja desconectar?')
+    if (confirm){
+      localStorage.removeItem("token")
+      localStorage.removeItem("user")
+      changePage('/')
+    }
   }
 
   return (
@@ -20,43 +33,29 @@ export default function Header() {
         />
       </div>
 
-      <button
-        onClick={() => changePage('/trips/list')}>
-        ListTrips
-      </button>
+      {userEmail ?
+        <LoggedIn>
+          <p>Olá <span>{userEmail}</span></p>
+          <TransparentButton
+            onClick={() => changePage('/admin/trips/list')}
+          >
+            <i className="fas fa-cog"></i> Acessar Painel
+          </TransparentButton>
+          <TransparentButton
+            onClick={doLogout}
+          >
+            <i className="fas fa-times-circle"></i> Fazer Logout
+          </TransparentButton>
+        </LoggedIn> :
+        <LoggedOut>
+          <TransparentButton
+            onClick={() => changePage('/login')}
+          >
+            <i className="fas fa-user-lock"></i> Área Administrativa
+          </TransparentButton>
+        </LoggedOut>
+      }
 
-      <button
-        onClick={() => changePage('/trips/application')}>
-        ApplicationForm
-      </button>
-
-      <button
-        onClick={() => changePage('/login')}>
-        Login
-      </button>
-
-      <button
-        onClick={() => changePage('/admin/trips/list')}>
-        AdminHome
-      </button>
-
-      <button
-        onClick={() => changePage('/admin/trips/:id')}>
-        TripDetails
-      </button>
-
-      <button
-        onClick={() => changePage('/admin/trips/create')}>
-        CreateTrip
-      </button>
-
-      <HeaderButtonContainer>
-        <HeaderButton
-          onClick={() => changePage('/login')}
-        >
-          <i className="fas fa-user-lock"></i> Área Administrativa
-        </HeaderButton>
-      </HeaderButtonContainer>
     </HeaderContainer>
   );
 }

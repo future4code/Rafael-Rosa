@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BannerIMG from '../../assets/banner-image.jpg'
+import { green, white, yellow } from "../../constants/colors";
 
 
 export const PageContainer = styled.div`
@@ -7,7 +8,6 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #0F586C;
-  color: red;
 `
 
 export const Banner = styled.div`
@@ -19,4 +19,9 @@ export const Banner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
+  h1 {
+    max-width: 60%;
+  }
 `

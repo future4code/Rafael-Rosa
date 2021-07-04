@@ -1,11 +1,12 @@
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
 import { PageContainer, TitleContainer, ListContainer, CardTrip } from './styled'
-import { useEffect, useState } from "react";
-import { getTripsList } from "../../requests/API";
+import { SolidGreenButton, SolidYellowButton } from "../../styles/styles"
+import { useEffect, useState } from "react"
+import { getTripsList } from "../../requests/API"
 
 
 export default function ListTripsPage(props) {
@@ -26,6 +27,9 @@ export default function ListTripsPage(props) {
     props.selectTripToApply(trip)
   }
 
+  const goBackPage = () => {
+    history.goBack()
+  }
 
   const lista = tripsList.map((trip) => {
     return (
@@ -35,7 +39,7 @@ export default function ListTripsPage(props) {
         <p><strong>Local: </strong>{trip.planet}</p>
         <p><strong>Data: </strong>{trip.date}</p>
         <p><strong>Duração: </strong>{trip.durationInDays} dias</p>
-        <button onClick={() => goToApplicationFormPage(trip)}>Quero me cadastrar!</button>
+        <SolidYellowButton onClick={() => goToApplicationFormPage(trip)}>Quero me cadastrar!</SolidYellowButton>
       </CardTrip>
     )
   })
@@ -48,10 +52,12 @@ export default function ListTripsPage(props) {
         <h1>
           Viagens
         </h1>
-
-        {/* <button onClick={goToHomePage}>Voltar para Home</button> */}
-
       </TitleContainer>
+
+      <div>
+        <SolidGreenButton onClick={goBackPage}>{'<'} Voltar</SolidGreenButton>
+      </div>
+
       <ListContainer>
         {lista}
       </ListContainer>
